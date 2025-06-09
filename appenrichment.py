@@ -75,7 +75,6 @@ def enrich_data(df):
         "Xperior" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX Xperior" in row.get("Name", '') else
         "Xploric" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX Xploric" in row.get("Name", '') else
         "Coreflow" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("Coreflow Studio" in row.get("Name", '') or "Coreflow Luxe" in row.get("Name", '')) else
-        "AE" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("A.E." in row.get("Name", '') or "AE 1" in row.get("Name", '')) else
         "Cloudfoam Pure" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Cloudfoam Pure" in row.get("Name", '') else
         "CodeChaos" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Codechaos" in row.get("Name", '') else
         "Cross Em" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Cross Em" in row.get("Name", '') else
