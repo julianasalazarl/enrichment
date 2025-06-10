@@ -216,56 +216,6 @@ def enrich_data(df):
         "Dugout" if pd.isna(row.get("PIM - Product Line (sportsub)")) and (
             "Baseball" in str(row.get("PIM - Sport", "")) or "Softball" in str(row.get("PIM - Sport", ""))
         ) else
-        "Beyond the Course" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Golf" in str(row.get("PIM - Sport", "")) and "Beyond" in str(row.get("Name", "")) else
-        "CodeChaos" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Golf" in str(row.get("PIM - Sport", "")) and "Codechaos" in str(row.get("Name", "")) else
-        "Clima" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Clima" in str(row.get("Name", "")) else
-        "Everyset" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Everyset" in str(row.get("Name", "")) else
-        "Rapidmove" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Rapidmove" in str(row.get("Name", "")) else
-        "Stella Court" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Stella McCartney Court" in str(row.get("Name", "")) else
-        "GameCourt" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Gamecourt" in str(row.get("Name", "")) else
-        "Solematch" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Solematch" in str(row.get("Name", "")) else
-        "TLDR" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TLDR" in str(row.get("Name", "")) else
-        "Coursecup" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Coursecup" in str(row.get("Name", "")) else
-        "Gym+" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Gym+" in str(row.get("Name", "")) else
-        "Pacer" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Pacer" in str(row.get("Name", "")) else
-        "Designed for Training" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Designed-for-Training" in str(row.get("Name", "")) else
-        "Run 70s" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Run 70s" in str(row.get("Name", "")) else
-        "Lightblaze " if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Lightblaze" in str(row.get("Name", "")) else
-        "ZNSORY" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ZNSORY" in str(row.get("Name", "")) else
-        "Aspyre" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Aspyre" in str(row.get("Name", "")) else
-        "BRMD" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BRMD" in str(row.get("Name", "")) else
-        "Ultradream" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ultradream" in str(row.get("Name", "")) else
-        "ZNE" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Soccer" in row.get("PIM - Sport", '') and "Z.N.E" in str(row.get("Name", "")) else
-        "Spezialist" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Spezialist" in str(row.get("Name", "")) else
-        "Ligra" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ligra" in str(row.get("Name", "")) else
-        "Essentials" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Essentials" in str(row.get("Name", "")) else
-        "Worldwide Hoops" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("Worldwide Hoops" in str(row.get("Name", "")) or "WWH " in str(row.get("Name", ""))) else
-        "adilenium" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Adilenium" in str(row.get("Name", "")) else
-        "Teamwear" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(team in str(row.get("Name", "")) or team in str(row.get("PIM - Teams", "")) for team in [
-            "University of Louisville", "Louisville Cardinals", "Texas A&M", "Texas A&M Aggies", "University of Kansas", "Kansas Jayhawks",
-            "University of Miami", "Miami Hurricanes", "University of Nebraska", "Nebraska Cornhuskers",
-            "North Carolina State University", "North Carolina", "Arizona State University", "Grambling State University", "Grambling State Tigers",
-            "Indiana University", "Indiana Hoosiers", "University of Washington", "Washington Huskies", "NC State", "NC State Wolfpack",
-            "New Zealand Rugby", "All Blacks", "Texas Tech", "Hoosiers", "Huskies", "Georgia Tech", "Yellow Jackets",
-            "Alcorn State", "Alcorn State Braves", "Arkansas Pine Bluff", "Arkansas-Pine Bluff Golden Lions",
-            "Mississippi State University", "Mississippi State Bulldogs", "Alabama State", "Alabama State Hornets",
-            "Black History Month University"
-        ]) else
-        "Initiation" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Initiation" in str(row.get("Name", "")) else
-        "BB Legends" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Basketball Legends" in str(row.get("Name", "")) else
-        "Crazy Lite" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Crazy lite" in str(row.get("Name", "")) else
-        "Ballerina" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ballerina" in str(row.get("Name", "")) else
-        "Palos Hills" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Palos Hills" in str(row.get("Name", "")) else
-        "Seeulater" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Seeulater" in str(row.get("Name", "")) else
-        "Superskate" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Superskate" in str(row.get("Name", "")) else
-        "Italia" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Italia" in str(row.get("Name", "")) else
-        "Montreal" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Montreal" in str(row.get("Name", "")) else
-        "Adiraptor" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Adiraptor" in str(row.get("Name", "")) else
-        "Ghost Sprint" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ghost Sprint" in str(row.get("Name", "")) else
-        "Feroza" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Motorsport" in str(row.get("PIM - Sport", "")) and "Feroza" in str(row.get("Name", "")) else
-        "Adiracer" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Motorsport" in str(row.get("PIM - Sport", "")) and "Adiracer" in str(row.get("Name", "")) else
-        "Heritage" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Tennis" in str(row.get("PIM - Sport", "")) and "Heritage" in str(row.get("Name", "")) else
-        "Defiant Speed" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Tennis" in str(row.get("PIM - Sport", "")) and "Defiant" in str(row.get("Name", "")) else
         row.get("PIM - Product Line (sportsub)")
     ), axis=1)
     
