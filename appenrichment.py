@@ -213,8 +213,6 @@ def enrich_data(df):
         "Anylander" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Anylander" in str(row.get("Name", "")) else
         "Xperior" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Xperior" in str(row.get("Name", "")) else
         "EQT" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("Equipment" in str(row.get("Name", "")) or "EQT" in str(row.get("Name", ""))) else
-        "Dugout" if pd.isna(row.get("PIM - Product Line (sportsub)")) and (
-            "Baseball" in str(row.get("PIM - Sport", "")) or "Softball" in str(row.get("PIM - Sport", ""))
         ) else
         row.get("PIM - Product Line (sportsub)")
     ), axis=1)
