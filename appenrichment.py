@@ -204,7 +204,6 @@ def enrich_data(df):
         "Goletto" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Goletto" in row.get("Name", '') else
         "Anthony Edwards" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Anthony Edwards" in row.get("Name", '') else
         "D.O.N" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "D.O.N" in row.get("Name", '') else
-        "Nora" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Nora Vasconcellos" in row.get("PIM - Athletes", '') else
         "Megaride;2000s" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Megaride" in row.get("Name", '') else
         "Centennial" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Centennial" in row.get("Name", '') else
         "Aloha Super" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Aloha Super" in row.get("Name", '') else
