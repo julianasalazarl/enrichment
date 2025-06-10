@@ -132,7 +132,6 @@ def enrich_data(df):
         "Start Your Run" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Start Your Run" in row.get("Name", '') else
         "Activeride" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Activeride 2.0" in row.get("Name", '') else
         "ZNCHILL" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ZNCHILL" in row.get("Name", '') else
-        "Nora" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Nora" in row.get("Name", '') else
         "Solarmotion" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Solarmotion" in row.get("Name", '') else
         "Kantana" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Kantana Shoes" in row.get("Name", '') else
         "Midcity" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Midcity Low Shoes" in row.get("Name", '') else
