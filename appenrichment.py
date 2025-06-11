@@ -214,8 +214,8 @@ def enrich_data(df):
         "Xperior" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Xperior" in str(row.get("Name", "")) else
         "EQT" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("Equipment" in str(row.get("Name", "")) or "EQT" in str(row.get("Name", ""))) else
         ) else
-        str(row.get("PIM - Product Line (sportsub)")
-    ), axis=1)
+        str(row.get("PIM - Product Line (sportsub)"))
+    ), axis=1
     
     return df
 
