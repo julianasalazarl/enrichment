@@ -269,6 +269,14 @@ def enrich_data(df):
         row.get("PIM - Product Line (sportsub)")
     ), axis=1)
     
+    df["Enriched Product Family"] = df.apply(lambda row: (
+        "Hyperturf" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Hyperturf" in str(row.get("Name", "")) else
+        "Sambae" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Sambae" in str(row.get("Name", "")) else
+        "Mocaturf" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Mocaturf" in str(row.get("Name", "")) else
+        "Roverend" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Roverend" in str(row.get("Name", "")) else
+        row.get("PIM - Product Family (productlinestyle)")
+    ), axis=1)
+
     return df
 
 if uploaded_file:
