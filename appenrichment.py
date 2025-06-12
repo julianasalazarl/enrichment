@@ -277,7 +277,7 @@ def enrich_data(df):
         row.get("PIM - Product Family (productlinestyle)")
     ), axis=1)
 
- return df
+        return df
 
 if uploaded_file:
     try:
