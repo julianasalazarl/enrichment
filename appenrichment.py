@@ -1,18 +1,18 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
-import io
-
-st.set_page_config(page_title="Product Enrichment Tool")
-st.title("Seasonal Product Enrichment Tool")
-st.markdown("""
-Upload your Excel file with the seasonal articles. This tool will automatically enrich missing fields based on name patterns
-and provide a downloadable Excel file with the completed data.
-""")
-
-uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
-
-def enrich_data(df):
+    import streamlit as st
+    import pandas as pd
+    import numpy as np
+    import io
+    
+    st.set_page_config(page_title="Product Enrichment Tool")
+    st.title("Seasonal Product Enrichment Tool")
+    st.markdown("""
+    Upload your Excel file with the seasonal articles. This tool will automatically enrich missing fields based on name patterns
+    and provide a downloadable Excel file with the completed data.
+    """)
+    
+    uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
+    
+    def enrich_data(df):
     df = df.copy()
     
     # Create the new enriched column based on conditions
@@ -276,18 +276,18 @@ def enrich_data(df):
         "Roverend" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Roverend" in str(row.get("Name", "")) else
         row.get("PIM - Product Family (productlinestyle)")
     ), axis=1)
-
+    
         return df
-
-if uploaded_file:
+    
+    if uploaded_file:
     try:
         df = pd.read_excel(uploaded_file)
         enriched_df = enrich_data(df)
-
+    
         # Show preview
         st.success("File processed successfully! Here's a preview:")
         st.dataframe(enriched_df.head())
-
+    
         # Convert to Excel for download
         output = io.BytesIO()
         with pd.ExcelWriter(output, engine='openpyxl') as writer:
@@ -299,7 +299,7 @@ if uploaded_file:
             file_name="enriched_products.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
-
+    
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
-
+    
