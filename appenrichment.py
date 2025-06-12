@@ -3,16 +3,16 @@ import pandas as pd
 import numpy as np
 import io
     
-    st.set_page_config(page_title="Product Enrichment Tool")
-    st.title("Seasonal Product Enrichment Tool")
-    st.markdown("""
-    Upload your Excel file with the seasonal articles. This tool will automatically enrich missing fields based on name patterns
-    and provide a downloadable Excel file with the completed data.
-    """)
+st.set_page_config(page_title="Product Enrichment Tool")
+st.title("Seasonal Product Enrichment Tool")
+st.markdown("""
+Upload your Excel file with the seasonal articles. This tool will automatically enrich missing fields based on name patterns
+and provide a downloadable Excel file with the completed data.
+""")
     
-    uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
+uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
     
-    def enrich_data(df):
+def enrich_data(df):
     df = df.copy()
     
     # Create the new enriched column based on conditions
@@ -279,7 +279,7 @@ import io
     
         return df
     
-    if uploaded_file:
+if uploaded_file:
     try:
         df = pd.read_excel(uploaded_file)
         enriched_df = enrich_data(df)
