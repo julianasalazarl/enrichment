@@ -1,7 +1,7 @@
-    import streamlit as st
-    import pandas as pd
-    import numpy as np
-    import io
+import streamlit as st
+import pandas as pd
+import numpy as np
+import io
     
     st.set_page_config(page_title="Product Enrichment Tool")
     st.title("Seasonal Product Enrichment Tool")
