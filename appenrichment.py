@@ -758,7 +758,115 @@ def enrich_data(df):
         "Color Block" if pd.isna(row.get("PIM - Pattern")) and "Color block" in str(row.get("Name", "")) else
         "Plaid" if pd.isna(row.get("PIM - Pattern")) and "Plaid" in str(row.get("Name", "")) else
         row.get("PIM - Pattern")
-    ), axis=1)   
+    ), axis=1)
+    df["Enriched Base Material"] = df.apply(lambda row: (
+        "Fleece" if pd.isna(row.get("PIM - Base Material")) and "ALL SZN" in str(row.get("Name", "")) else
+        "Nuganic" if pd.isna(row.get("PIM - Base Material")) and "Nuganic" in str(row.get("Name", "")) else
+        "Denim" if pd.isna(row.get("PIM - Base Material")) and "Denim" in str(row.get("Name", "")) else
+        "Satin" if pd.isna(row.get("PIM - Base Material")) and "Satin" in str(row.get("Name", "")) else
+        "Velour;Velvet" if pd.isna(row.get("PIM - Base Material")) and (
+            "Velour" in str(row.get("Name", "")) or "Velvet" in str(row.get("Name", ""))
+        ) else
+        "Piqué" if pd.isna(row.get("PIM - Base Material")) and "Pique" in str(row.get("Name", "")) else
+        "Microfiber" if pd.isna(row.get("PIM - Base Material")) and "Microfiber" in str(row.get("Name", "")) else
+        "Wool" if pd.isna(row.get("PIM - Base Material")) and "Wool" in str(row.get("Name", "")) else
+        "Molded" if pd.isna(row.get("PIM - Base Material")) and "Molded" in str(row.get("Name", "")) else
+        "Cashmere" if pd.isna(row.get("PIM - Base Material")) and "Cashmere" in str(row.get("Name", "")) else
+        "Twistknit" if pd.isna(row.get("PIM - Base Material")) and "Twistknit" in str(row.get("Name", "")) else
+        "Recycled Polyester" if pd.isna(row.get("PIM - Base Material")) and
+        "Soccer" in str(row.get("PIM - Sport", "")) and (
+                "Jerseys" in str(row.get("PIM adidas - Product Types", "")) or
+                "Jerseys - Long Sleeve" in str(row.get("PIM adidas - Product Types", "")) or
+                "Gloves - Goalkeeper" in str(row.get("PIM adidas - Product Types", ""))
+            ) else
+        "Cotton" if pd.isna(row.get("PIM - Base Material")) and
+            "Soccer" in str(row.get("PIM - Sport", "")) and
+            "Shorts" in str(row.get("PIM adidas - Product Types", "")) and (
+                "Tiro 24 Sweat Shorts" in str(row.get("Name", "")) or
+                "Tiro 24 Shorts" in str(row.get("Name", ""))
+            ) else
+        "Cotton" if pd.isna(row.get("PIM - Base Material")) and
+            "Soccer" in str(row.get("PIM - Sport", "")) and
+            "T Shirts" in str(row.get("PIM adidas - Product Types", "")) else
+        "Twistweave" if pd.isna(row.get("PIM - Base Material")) and "Twistweave" in str(row.get("Name", "")) else
+        row.get("PIM - Base Material")
+    ), axis=1)
+    df["Enriched Partner"] = df.apply(lambda row: (
+        "Disney" if pd.isna(row.get("PIM - Partner")) and "Disney" in str(row.get("Name", "")) else
+        "Disney; Star Wars" if pd.isna(row.get("PIM - Partner")) and "Star Wars" in str(row.get("Name", "")) else
+        "Disney;Mickey" if pd.isna(row.get("PIM - Partner")) and "Mickey" in str(row.get("Name", "")) else
+        "Disney;Moana" if pd.isna(row.get("PIM - Partner")) and "Moana" in str(row.get("Name", "")) else
+        "Farm" if pd.isna(row.get("PIM - Partner")) and "FARM" in str(row.get("Name", "")) else
+        "UEFA Champions League;Club" if pd.isna(row.get("PIM - Partner")) and any(x in str(row.get("Name", "")) for x in [
+            "Juventus", "Manchester United", "Real Madrid", "AFC Ajax"
+        ]) else
+        "Stella McCartney" if pd.isna(row.get("PIM - Partner")) and "Stella McCartney" in str(row.get("Name", "")) else
+        "LEGO" if pd.isna(row.get("PIM - Partner")) and "Lego" in str(row.get("Name", "")) else
+        "Marimekko" if pd.isna(row.get("PIM - Partner")) and "Marimekko" in str(row.get("Name", "")) else
+        "Disney;Marvel" if pd.isna(row.get("PIM - Partner")) and "Marvel" in str(row.get("Name", "")) else
+        "Parley" if pd.isna(row.get("PIM - Partner")) and "Parley" in str(row.get("Name", "")) else
+        "MLS" if pd.isna(row.get("PIM - Partner")) and any(x in str(row.get("Name", "")) for x in [
+            "Atlanta United", "Austin FC", "CF Montreal", "Charlotte FC", "Chicago Fire", "Colorado Rapids",
+            "Columbus Crew", "D.C. United", "FC Cincinnati", "FC Dallas", "Houston Dynamo", "Inter Miami CF",
+            "LA Galaxy", "LAFC", "Los Angeles FC", "Minnesota United", "Nashville SC", "New England Revolution",
+            "New York City FC", "New York Red Bulls", "Orlando City", "Philadelphia Union", "Portland Timbers",
+            "Real Salt Lake", "San Jose Earthquakes", "Seattle Sounders FC", "Sporting Kansas City",
+            "St. Louis CITY FC", "Toronto FC", "Vancouver Whitecaps", "Jamaica Beckenbauer", "Lightning Third",
+            "Los Angeles Football Club", "Montreal Impact", "Orlando City SC", "Seattle Sounders",
+            "ST Louis City SC", "Washington Huskies"
+        ]) else
+        "Club" if pd.isna(row["PIM - Partner"]) and "Benfica" in row["Name"] else
+        "UEFA Champions League;Club" if pd.isna(row["PIM - Partner"]) and any(x in row["Name"] for x in [
+            "Celtic FC", "FC Bayern Munich", "Olympique Lyonnais", "Arsenal"
+        ]) else
+        "Club" if pd.isna(row["PIM - Partner"]) and "Newcastle United FC" in row["Name"] else
+        "SPZL" if pd.isna(row["PIM - Partner"]) and "SPZL" in row["Name"] else
+        "Andre Saravia" if pd.isna(row["PIM - Partner"]) and any(x in row["Name"] for x in ["André Saraiva", "Andre Saraiva"]) else
+        "Edison Chen" if pd.isna(row["PIM - Partner"]) and "Edison Chen" in row["Name"] else
+        "Y 3" if pd.isna(row["PIM - Partner"]) and "Y-3" in row["Name"] else
+        "Bad Bunny" if pd.isna(row["PIM - Partner"]) and any(x in row["Name"] for x in ["Bad Bunny", "Ballerina"]) else
+        "KseniaSchnaider" if pd.isna(row["PIM - Partner"]) and "KSENIASCHNAIDER" in row["Name"] else
+        "BAPE" if pd.isna(row["PIM - Partner"]) and "BAPE" in row["Name"] else
+        "Pop Trading Company" if pd.isna(row["PIM - Partner"]) and "Pop Trading Co" in row["Name"] else
+        "Wales Bonner" if pd.isna(row["PIM - Partner"]) and "Wales Bonner" in row["Name"] else
+        "Pharrell" if pd.isna(row["PIM - Partner"]) and "Pharrell Williams" in row["Name"] else
+        "100 Thieves" if pd.isna(row["PIM - Partner"]) and "100 Thieves" in row["Name"] else
+        "Korn" if pd.isna(row["PIM - Partner"]) and "Korn" in row["Name"] else
+        "UEFA Champions League" if pd.isna(row["PIM - Partner"]) and "UCL" in row["Name"] else
+        "UEFA EURO" if pd.isna(row["PIM - Partner"]) and any(x in row["Name"] for x in ["Euro 24", "Fussballliebe"]) else
+        "Deadpool;Marvel" if pd.isna(row["PIM - Partner"]) and "Deadpool" in row["Name"] else
+        "Yeezy" if pd.isna(row["PIM - Partner"]) and "Yeezy" in row["Name"] else
+        "Y3" if pd.isna(row["PIM - Partner"]) and "Y-3" in row["Name"] else
+        "Avavav" if pd.isna(row["PIM - Partner"]) and "Avavav" in row["Name"] else
+        "Club" if pd.isna(row["PIM - Partner"]) and any(x in row["Name"] for x in ["AS Roma", "Boca Juniors"]) else
+        "Lion King" if pd.isna(row["PIM - Partner"]) and "Lion King" in row["Name"] else
+        "Fortnite" if pd.isna(row["PIM - Partner"]) and "Fortnite" in row["Name"] else
+        "Teamgeist" if pd.isna(row["PIM - Partner"]) and "Teamgeist" in row["Name"] else
+        "Willy Chavarria" if pd.isna(row["PIM - Partner"]) and "Willy Chavarria" in row["Name"] else
+        "OG LA" if pd.isna(row["PIM - Partner"]) and any(x in row["Name"] for x in ["OG L.A", "OG LA"]) else
+        "College" if pd.isna(row["PIM - Partner"]) and (
+            "Collegiate" in row["Name"] or
+            any(x in row["Name"] for x in [
+                "University of Louisville", "Texas A&M", "University of Kansas",
+                "University of Miami", "University of Nebraska", "North Carolina State University",
+                "Arizona State University", "Grambling State University", "Indiana University",
+                "University of Washington", "NC State", "Nebraska", "New Zealand Rugby",
+                "Texas Tech", "Hoosiers", "Huskies", "Georgia Tech", "Yellow Jackets",
+                "Kansas Jayhawks", "Alcorn State", "Arkansas Pine Bluff",
+                "Mississippi State University", "Alabama State"
+            ]) or
+            any(x in row.get("PIM - Teams", "") for x in [
+                "Louisville Cardinals", "Texas A&M Aggies", "Kansas Jayhawks",
+                "Miami Hurricanes", "Nebraska Cornhuskers", "North Carolina",
+                "Arizona State University", "Grambling State Tigers", "Indiana Hoosiers",
+                "Washington Huskies", "NC State Wolfpack", "All Blacks", "Texas Tech",
+                "Georgia Tech", "Alcorn State Braves", "Arkansas-Pine Bluff Golden Lions",
+                "Mississippi State Bulldogs", "Alabama State Hornets"
+            ])
+        ) else
+        row.get("PIM - Partner")
+    ), axis=1)
+
     return df
     
 if uploaded_file:
