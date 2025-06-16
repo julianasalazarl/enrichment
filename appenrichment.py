@@ -693,7 +693,7 @@ def enrich_data(df):
             "Samba ADV", "Superstar ADV", "Stan Smith ADV", "Centennial 85 Low ADV",
             "Gazelle ADV", "Pro Model 80 ADV", "Campus ADV"
         ]) else
-        row.get("PIM - Label")
+        row.get("PIM - Sport")
     ), axis=1)
     return df
     
