@@ -336,7 +336,70 @@ def enrich_data(df):
         "Agravic Speed Ultra" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TERREX Agravic Speed Ultra" in str(row.get("Name", "")) else
         "Agravic Speed" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TERREX Agravic Speed" in str(row.get("Name", "")) else
         "Agravic Ultra" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TERREX Agravic Ultra" in str(row.get("Name", "")) else
-        
+        "SL 72 RTN" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 72 RTN" in str(row.get("Name", "")) else
+        "Anthony Edwards 1" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Anthony Edwards 1" in str(row.get("Name", "")) else
+        "3 Stripes" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("3 Stripes" in str(row.get("Name", "")) or "3-Stripes" in str(row.get("Name", ""))) else
+        "F50 Pro" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "F50 Pro" in str(row.get("Name", "")) else
+        "F50 Elite" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "F50 Elite" in str(row.get("Name", "")) else
+        "F50 League" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "F50 League" in str(row.get("Name", "")) else
+        "Stan Smith Lux" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Stan Smith Lux" in str(row.get("Name", "")) else
+        "Gazelle Bold" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Gazelle Bold" in str(row.get("Name", "")) else
+        "Predator Edge" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Predator Edge" in str(row.get("Name", "")) else
+        "Predator Club" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Predator Club" in str(row.get("Name", "")) else
+        "Predator Accuracy" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Predator Accuracy" in str(row.get("Name", "")) else
+        "Predator League" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Predator League" in str(row.get("Name", "")) else
+        "Copa Sense" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Copa Sense" in str(row.get("Name", "")) else
+        "Copa Mundial" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Copa Mundial" in str(row.get("Name", "")) else
+        "adizero Instinct" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "adizero Instinct" in str(row.get("Name", "")) else
+        "Free Hiker 2" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Free Hiker 2" in str(row.get("Name", "")) else
+        "Exhibit Select" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Exhibit Select" in str(row.get("Name", "")) else
+        "adizero Impact" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adizero Impact" in str(row.get("Name", "")) else
+        "SL 72 OG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 72 OG" in str(row.get("Name", "")) else
+        "SL 72 RS" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 72 RS" in str(row.get("Name", "")) else
+        "Predator Elite" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Predator Elite" in str(row.get("Name", "")) else
+        "Forum Bold" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Forum Bold" in str(row.get("Name", "")) else
+        "VL Court 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "VL Court 3.0" in str(row.get("Name", "")) else
+        "Ultraboost 20" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ultraboost 20" in str(row.get("Name", "")) else
+        "SL 76" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 76" in str(row.get("Name", "")) else
+        "Handball Spezial" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Originals" in str(row.get("PIM - Label", "")) and "Handball Spezial" in str(row.get("Name", "")) else
+        "Response CL;2000s" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Response CL" in str(row.get("Name", "")) else
+        "Rivalry Low" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Rivalry 86 Low" in str(row.get("Name", "")) or "Rivalry Summer Low" in str(row.get("Name", ""))) else
+        "Rivalry High" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Rivalry High" in str(row.get("Name", "")) else
+        "Ozmillen" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ozmillen" in str(row.get("Name", "")) else
+        "Lite Racer Adapt" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Lite Racer Adapt" in str(row.get("Name", "")) else
+        "Firebird" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Firebird" in str(row.get("Name", "")) else
+        "adizero Electric" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adizero Electric" in str(row.get("Name", "")) else
+        "Adilette 22" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adilette 22" in str(row.get("Name", "")) else
+        "Superstar XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Superstar XLG" in str(row.get("Name", "")) else
+        "Country XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Country XLG" in str(row.get("Name", "")) else
+        "Samba XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba XLG" in str(row.get("Name", "")) else
+        "Samba OG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba OG" in str(row.get("Name", "")) else
+        "Y-3 Classic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Y-3 Classic" in str(row.get("Name", "")) or "Y-3 CL" in str(row.get("Name", ""))) else
+        "Retro Quarter" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Retro Quarter" in str(row.get("Name", "")) else
+        "Retro Graphic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Retro Graphic" in str(row.get("Name", "")) else
+        "Activeride 2.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Activeride 2.0" in str(row.get("Name", "")) else
+        "QT Racer 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "QT Racer 3.0" in str(row.get("Name", "")) else
+        "Eastrail 2.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Eastrail 2.0" in str(row.get("Name", "")) else
+        "ZG21" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "ZG21" in str(row.get("Name", "")) else
+        "ZG23" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "ZG23" in str(row.get("Name", "")) else
+        "Daily 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Daily 3.0" in str(row.get("Name", "")) else
+        "Copa Gloro" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Copa Gloro" in str(row.get("Name", "")) else
+        "Tiro 21" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("TIRO 21" in str(row.get("Name", "")) or "TIRO21" in str(row.get("Name", ""))) else
+        "Tiro 23" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("TIRO 23" in str(row.get("Name", "")) or "TIRO23" in str(row.get("Name", ""))) else
+        "Tiro 24" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("TIRO 24" in str(row.get("Name", "")) or "TIRO24" in str(row.get("Name", ""))) else
+        "Ultraboost light" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ultraboost light" in str(row.get("Name", "")) else
+        "Supernova Stride" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Supernova Stride" in str(row.get("Name", "")) else
+        "Supernova Solution" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Supernova Solution" in str(row.get("Name", "")) else
+        "Supernova Rise" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Supernova Rise" in str(row.get("Name", "")) else
+        "Trae Young Unlimited" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Trae Unlimited" in str(row.get("Name", "")) else
+        "Trae Young 3" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Trae Young 3" in str(row.get("Name", "")) else
+        "Trae Young 2" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Trae Young 2" in str(row.get("Name", "")) else
+        "Dame Certified" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Dame Certified" in str(row.get("Name", "")) else
+        "Dame 8" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Dame 8" in str(row.get("Name", "")) else
+        "D.O.N Issue 8" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "D.O.N Issue 8" in str(row.get("Name", "")) else
+        "D.O.N Issue 7" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "D.O.N Issue 7" in str(row.get("Name", "")) else
+        "D.O.N Issue 6" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "D.O.N Issue 6" in str(row.get("Name", "")) else
+        "D.O.N Issue 5" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "D.O.N Issue 5" in str(row.get("Name", "")) else
         "Barricade 13" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Barricade 13" in str(row.get("Name", "")) else
         "Crazy 8" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Crazy 8" in str(row.get("Name", "")) else
         "D.O.N Issue 6" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("D.O.N. ISSUE 6" in str(row.get("Name", "")) or "D.O.N ISSUE #6" in str(row.get("Name", ""))) else
@@ -350,7 +413,63 @@ def enrich_data(df):
         "Alphabounce+" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Alphabounce+" in str(row.get("Name", "")) else
         "Country OG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Country OG" in str(row.get("Name", "")) else
         "Pro Shell ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Pro Shell ADV" in str(row.get("Name", "")) else
-        "Gazelle ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Gazelle ADV" in str(row.get("Name", "")) else    
+        "Gazelle ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Gazelle ADV" in str(row.get("Name", "")) else
+        "Centennial 85" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Centennial 85" in str(row.get("Name", "")) else
+        "Cloudfoam Pure" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Cloudfoam Pure" in str(row.get("Name", "")) else
+        "Supernova Prima" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Supernova Prima" in str(row.get("Name", "")) else
+        "Ultraboost 5X" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ultraboost 5X" in str(row.get("Name", "")) else
+        "PowerImpact" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "PowerImpact" in str(row.get("Name", "")) else
+        "Run Pocket" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Run Pocket" in str(row.get("Name", "")) else
+        "Soulstride Flow" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Soulstride Flow" in str(row.get("Name", "")) else
+        "TLRD Impact" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TLRD Impact" in str(row.get("Name", "")) else
+        "Campus Vulc" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Campus Vulc" in str(row.get("Name", "")) else
+        "Campus ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Campus ADV" in str(row.get("Name", "")) else
+        "Busenitz Vulc II" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Busenitz Vulc II" in str(row.get("Name", "")) else
+        "Busenitz Pro" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Busenitz Pro" in str(row.get("Name", "")) else
+        "Matchbreak Super" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Matchbreak Super" in str(row.get("Name", "")) else
+        "Ozweego" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ozweego" in str(row.get("Name", "")) else
+        "Samba ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba ADV" in str(row.get("Name", "")) else
+        "Gazelle Indoor" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Gazelle Indoor" in str(row.get("Name", "")) else
+        "Ozmorph" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ozmorph" in str(row.get("Name", "")) else
+        "Samba Decon" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba Decon" in str(row.get("Name", "")) else
+        "Samba Millenium" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Samba MN" in str(row.get("Name", "")) or "Samba Millenium" in str(row.get("Name", ""))) else
+        "Stan Smith Decon" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Stan Smith Decon" in str(row.get("Name", "")) else
+        "Rivalry Mule" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Rivalry Mule" in str(row.get("Name", "")) else
+        "Temper Run 2.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Temper Run 2.0" in str(row.get("Name", "")) else
+        "Superstar II" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Superstar II" in str(row.get("Name", "")) else
+        "Country II" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Country II" in str(row.get("Name", "")) else
+        "Harden Vol. 9" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Harden Vol. 9" in str(row.get("Name", "")) else
+        "Crazy 2" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Crazy 2" in str(row.get("Name", "")) else
+        "Tyshawn II" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Tyshawn II" in str(row.get("Name", "")) else
+        "adizero ZG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Golf" in str(row.get("PIM - Sport", "")) and "Adizero ZG" in str(row.get("Name", "")) else
+        "adizero Cybersonic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Tennis" in str(row.get("PIM - Sport", "")) and "Adizero Cybersonic" in str(row.get("Name", "")) else
+        "Entrada 22" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Soccer" in str(row.get("PIM - Sport", "")) and "Entrada 22" in str(row.get("Name", "")) else
+        "Lite Racer 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Lite Racer 3.0" in str(row.get("Name", "")) else
+        "Swift Run 1.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Swift Run 1.0" in str(row.get("Name", "")) else
+        "X_PLR Path" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "X_PLR Path" in str(row.get("Name", "")) else
+        "Kaptir Flow" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Kaptir Flow" in str(row.get("Name", "")) else
+        "Kaptir 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Kaptir 3.0" in str(row.get("Name", "")) else
+        "Lite Racer 4.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Lite Racer 4.0" in str(row.get("Name", "")) else
+        "VL Court Bold" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "VL Court Bold" in str(row.get("Name", "")) else
+        "Ultradream Bold" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ultradream Bold" in str(row.get("Name", "")) else
+        "Ultradream DNA" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ultradream DNA" in str(row.get("Name", "")) else
+        "Adilette Estrap" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adilette Estrap" in str(row.get("Name", "")) else
+        "Neuclassics" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Neuclassics" in str(row.get("Name", "")) else
+        "Superstar 80s" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Superstar 82" in str(row.get("Name", "")) else
+        "Adizero Aruku" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adizero Aruku" in str(row.get("Name", "")) else
+        "iiinfinity" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "IIInfinity" in str(row.get("Name", "")) else
+        "Adilenium Season 3" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adilenium Season 3" in str(row.get("Name", "")) else
+        "adizero takumi sen" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Takumi Sen" in str(row.get("Name", "")) else
+        "Dame 9" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Dame 9" in str(row.get("Name", "")) else
+        "Agravic 3" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Agravic 3" in str(row.get("Name", "")) else
+        "Tracefinder 2" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Tracefinder 2" in str(row.get("Name", "")) else
+        "Seeulater 2" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Seeulater 2" in str(row.get("Name", "")) else
+        "Dame X" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Dame X" in str(row.get("Name", "")) else
+        "Forum ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Forum ADV" in str(row.get("Name", "")) else
+        "Pro Model ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Pro Model ADV" in str(row.get("Name", "")) else
+        "Initiation" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Initiation" in str(row.get("Name", "")) else
+        "Pro Model" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Pro Model" in str(row.get("Name", "")) else
+        "Campus 00s Beta" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Campus 00s Beta" in str(row.get("Name", "")) else
         row.get("PIM - Product Family (productlinestyle)")
     ), axis=1)
     
