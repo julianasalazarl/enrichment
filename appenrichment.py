@@ -603,7 +603,7 @@ def enrich_data(df):
             "Gazelle", "Samba", "Stan Smith"
         ]) else
         "Originals" if pd.isna(row.get("PIM - Label")) and "Golf" in str(row.get("PIM - Sport", "")) and "Originals" in str(row.get("Name", "")) else
-        row.get("PIM - Product Family (productlinestyle)")
+        row.get("PIM - Label")
     ), axis=1)
         
     
