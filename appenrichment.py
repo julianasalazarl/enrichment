@@ -605,8 +605,96 @@ def enrich_data(df):
         "Originals" if pd.isna(row.get("PIM - Label")) and "Golf" in str(row.get("PIM - Sport", "")) and "Originals" in str(row.get("Name", "")) else
         row.get("PIM - Label")
     ), axis=1)
-        
-    
+    df["Enriched Sport"] = df.apply(lambda row: (   
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Freerider" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Aleon" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Crawe" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Hellcat" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Hiangle" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Kestrel" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Kirigami" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten NIAD" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Sleuth" in str(row.get("Name", "")) else
+        "Outdoor" if pd.isna(row.get("PIM - Sport")) and "Five Ten Trailcross" in str(row.get("Name", "")) else
+        "Basketball;Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Forum" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Adifom Supernova" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero adios" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero adios pro" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero Boston" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero prime" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero RC" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero SL" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "adizero takumi sen" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "Solarboost" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "Solarcontrol" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "Solarglide" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "Ultrabounce" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "ALL SZN" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "Duramo" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Ultraboost 1.0" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "X_PLR" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "XPLR" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Z.N.E" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "City Escape" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "FortaRun" in str(row.get("Name", "")) else
+        "Running" if pd.isna(row.get("PIM - Sport")) and "RunFalcon" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Racer TR" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "VL Court" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Front Court" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Ownthegame" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Ubounce" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Breaknet" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Grand Court 2.0" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Postmove" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "alphaboost" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Puremotion" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Kaptir" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Spiritain" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "ZNSORED" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Future Icons" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Lite Racer" in str(row.get("Name", "")) else
+        "Swim; Yoga; Lifestyle" if pd.isna(row.get("PIM - Sport")) and "adilette aqua" in str(row.get("Name", "")) else
+        "Swim; Yoga; Lifestyle" if pd.isna(row.get("PIM - Sport")) and "adilette comfort" in str(row.get("Name", "")) else
+        "Swim; Yoga;Lifestyle" if pd.isna(row.get("PIM - Sport")) and "adilette shower" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "grand court alpha" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "alphabounce" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "adicane" in str(row.get("Name", "")) else
+        "Swim;Yoga;Lifestyle" if pd.isna(row.get("PIM - Sport")) and "adilette platform" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "advantage" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "courtblock" in str(row.get("Name", "")) else
+        "Swim;Yoga;Lifestyle" if pd.isna(row.get("PIM - Sport")) and pd.notna(row.get("PIM adidas - Product Types")) and "Slides" in row.get("PIM adidas - Product Types") else
+        "Dance" if pd.isna(row.get("PIM - Sport")) and "Dance" in str(row.get("Name", "")) else
+        "Golf" if pd.isna(row.get("PIM - Sport")) and "Golf" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "TrueCasuals" in str(row.get("Name", "")) else
+        "Golf" if pd.isna(row.get("PIM - Sport")) and "Ultimate365" in str(row.get("Name", "")) else
+        "Soccer" if pd.isna(row.get("PIM - Sport")) and "Copa Gloro" in str(row.get("Name", "")) else
+        "Cycling" if pd.isna(row.get("PIM - Sport")) and "Bike Shoes" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "FARM" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Z.N.E." in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Run 70s Shoes" in str(row.get("Name", "")) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Run 80s Shoes" in str(row.get("Name", "")) else
+        "Cycling" if pd.isna(row.get("PIM - Sport")) and "The Gravel Cycling" in str(row.get("Name", "")) else
+        "Soccer" if pd.isna(row.get("PIM - Sport")) and any(team in str(row.get("Name", "")) for team in [
+            "Atlanta United", "Austin FC", "CF Montreal", "Charlotte FC", "Chicago Fire", "Colorado Rapids",
+            "Columbus Crew", "D.C. United", "FC Cincinnati", "FC Dallas", "Houston Dynamo", "Inter Miami CF",
+            "LA Galaxy", "LAFC", "Los Angeles FC", "Manchester United", "Minnesota United", "Nashville SC",
+            "New England Revolution", "New York City FC", "New York Red Bulls", "Orlando City", "Philadelphia Union",
+            "Real Madrid", "Portland Timbers", "Real Salt Lake", "San Jose Earthquakes", "Seattle Sounders FC",
+            "Sporting Kansas City", "St. Louis CITY FC", "Toronto FC", "Vancouver Whitecaps",
+            "Jamaica Beckenbauer", "Lightning Third", "Los Angeles Football Club", "Montreal Impact",
+            "Orlando City SC", "Seattle Sounders", "ST Louis City SC", "AFC Ajax", "Washington Huskies",
+            "Benfica", "Celtic FC", "FC Bayern Munich", "Newcastle United FC", "Olympique Lyonnais", "Arsenal"
+        ]) else
+        "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "ZNSORED High" in str(row.get("Name", "")) else
+        "Training;Weightlifting" if pd.isna(row.get("PIM - Sport")) and "Dropset" in str(row.get("Name", "")) else
+        "Weightlifting" if pd.isna(row.get("PIM - Sport")) and "The Total" in str(row.get("Name", "")) else
+        "Basketball;Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Fear of God Athletics" in str(row.get("PIM - Label", "")) else
+        "Skateboarding;Lifestyle" if pd.isna(row.get("PIM - Sport")) and any(name in str(row.get("Name", "")) for name in [
+            "Samba ADV", "Superstar ADV", "Stan Smith ADV", "Centennial 85 Low ADV",
+            "Gazelle ADV", "Pro Model 80 ADV", "Campus ADV"
+        ]) else
+        row.get("PIM - Label")
+    ), axis=1)
     return df
     
 if uploaded_file:
