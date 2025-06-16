@@ -936,6 +936,121 @@ def enrich_data(df):
             "Originals" in str(row["PIM - Label"]) and "Athletic & Sneakers" in str(row["PIM adidas - Product Types"]) else 
         row.get("PIM - Surface")
     ), axis=1)
+    df["Enriched Athletes"] = df.apply(lambda row: (
+        "Ant Edwards" if pd.isna(row["PIM - Athletes"]) and "Anthony Edwards" in row["Name"] else 
+        "Donovan Mitchell" if pd.isna(row["PIM - Athletes"]) and any(x in row["Name"] for x in [
+            "D.O.N", "D.O.N Issue 5", "D.O.N Issue 6", "D.O.N Issue 7", "D.O.N Issue 8", "D.O.N. Issue 5"]) else 
+        "Damian Lillard" if pd.isna(row["PIM - Athletes"]) and any(x in row["Name"] for x in ["Dame 8", "Dame"]) else 
+        "Lionel Messi" if pd.isna(row["PIM - Athletes"]) and "Messi" in row["Name"] else 
+        "Trae Young" if pd.isna(row["PIM - Athletes"]) and any(x in row["Name"] for x in ["Trae", "Trae Young", "Trae Unlimited"]) else 
+        "James Harden" if pd.isna(row["PIM - Athletes"]) and "Harden" in row["Name"] else 
+        "Tyshawn Jones" if pd.isna(row["PIM - Athletes"]) and "Tyshawn" in row["Name"] else 
+        "Dennis Busenitz" if pd.isna(row["PIM - Athletes"]) and "Busenitz" in row["Name"] else 
+        "Lucas Puig" if pd.isna(row["PIM - Athletes"]) and "Puig" in row["Name"] else 
+        "Mark Gonzalez" if pd.isna(row["PIM - Athletes"]) and (
+            "Shmoofoil" in row["Name"] or "Shmoofoil" in str(row["PIM - Product Line (sportsub)"]) or 
+            "Gonz" in row["Name"] or "Aloha Super" in row["Name"] or "Aloha Super" in str(row["PIM - Product Line (sportsub)"])) else 
+        "Patrick Mahomes" if pd.isna(row["PIM - Athletes"]) and "Mahomes" in row["Name"] else 
+        "Nora Vasconcellos" if pd.isna(row["PIM - Athletes"]) and "Nora " in row["Name"] else 
+        "Heitor Da Silva" if pd.isna(row["PIM - Athletes"]) and "Pro Shell ADV x Heitor" in row["Name"] else 
+        "Kader Sylla" if pd.isna(row["PIM - Athletes"]) and "Kader" in row["Name"] else 
+        "Henry Jones" if pd.isna(row["PIM - Athletes"]) and "Henry Jones" in row["Name"] else 
+        "Jude Bellingham" if pd.isna(row["PIM - Athletes"]) and "Jude Bellingham" in row["Name"] else 
+        "Lamine Yamal" if pd.isna(row["PIM - Athletes"]) and "Lamine" in row["Name"] else 
+        "George Russell" if pd.isna(row["PIM - Athletes"]) and "George Russell" in row["Name"] else 
+        "Kimi Antonelli" if pd.isna(row["PIM - Athletes"]) and "Kimi Antonelli" in row["Name"] else 
+        row.get("PIM - Athletes")
+    ), axis=1)
+    df["Enriched Teams"] = df.apply(lambda row: (
+        "Atlanta United" if pd.isna(row["PIM - Teams"]) and "Atlanta United" in row["Name"] else 
+        "Austin FC" if pd.isna(row["PIM - Teams"]) and "Austin FC" in row["Name"] else 
+        "CF Montreal" if pd.isna(row["PIM - Teams"]) and "CF Montreal" in row["Name"] else 
+        "Charlotte FC" if pd.isna(row["PIM - Teams"]) and "Charlotte FC" in row["Name"] else 
+        "Chicago Fire" if pd.isna(row["PIM - Teams"]) and "Chicago Fire" in row["Name"] else 
+        "Colorado Rapids" if pd.isna(row["PIM - Teams"]) and "Colorado Rapids" in row["Name"] else 
+        "Columbus Crew" if pd.isna(row["PIM - Teams"]) and "Columbus Crew" in row["Name"] else 
+        "D.C. United" if pd.isna(row["PIM - Teams"]) and "D.C. United" in row["Name"] else 
+        "Cincinnati FC" if pd.isna(row["PIM - Teams"]) and "FC Cincinnati" in row["Name"] else 
+        "Dallas FC" if pd.isna(row["PIM - Teams"]) and "FC Dallas" in row["Name"] else 
+        "Houston Dynamo" if pd.isna(row["PIM - Teams"]) and "Houston Dynamo" in row["Name"] else 
+        "Inter Miami CF" if pd.isna(row["PIM - Teams"]) and "Inter Miami CF" in row["Name"] else 
+        "Los Angeles Football Club" if pd.isna(row["PIM - Teams"]) and ("Los Angeles Football Club" in row["Name"] or "Los Angeles FC" in row["Name"]) else 
+        "Manchester United" if pd.isna(row["PIM - Teams"]) and "Manchester United" in row["Name"] else 
+        "Minnesota United" if pd.isna(row["PIM - Teams"]) and "Minnesota United" in row["Name"] else 
+        "Nashville SC" if pd.isna(row["PIM - Teams"]) and "Nashville SC" in row["Name"] else 
+        "New England Revolution" if pd.isna(row["PIM - Teams"]) and "New England Revolution" in row["Name"] else 
+        "New York City FC" if pd.isna(row["PIM - Teams"]) and "New York City FC" in row["Name"] else 
+        "New York Red Bulls" if pd.isna(row["PIM - Teams"]) and "New York Red Bulls" in row["Name"] else 
+        "Orlando City SC" if pd.isna(row["PIM - Teams"]) and "Orlando City SC" in row["Name"] else 
+        "Philadelphia Union" if pd.isna(row["PIM - Teams"]) and "Philadelphia Union" in row["Name"] else 
+        "Real Madrid" if pd.isna(row["PIM - Teams"]) and "Real Madrid" in row["Name"] else 
+        "Portland Timbers" if pd.isna(row["PIM - Teams"]) and "Portland Timbers" in row["Name"] else 
+        "Real Salt Lake" if pd.isna(row["PIM - Teams"]) and "Real Salt Lake" in row["Name"] else 
+        "San Jose Earthquakes" if pd.isna(row["PIM - Teams"]) and "San Jose Earthquakes" in row["Name"] else 
+        "Seattle Sounders FC" if pd.isna(row["PIM - Teams"]) and "Seattle Sounders FC" in row["Name"] else 
+        "Sporting Kansas City" if pd.isna(row["PIM - Teams"]) and "Sporting Kansas City" in row["Name"] else 
+        "St Louis City SC" if pd.isna(row["PIM - Teams"]) and "St Louis CITY SC" in row["Name"] else 
+        "Toronto FC" if pd.isna(row["PIM - Teams"]) and "Toronto FC" in row["Name"] else 
+        "Vancouver Whitecaps" if pd.isna(row["PIM - Teams"]) and "Vancouver Whitecaps" in row["Name"] else 
+        "Jamaica" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["Jamaica Beckenbauer", "Jamaica OG", "Jamaica"]) else 
+        "Tampa Bay Lightning" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["Lightning Third", "Tampa Bay"]) else 
+        "Arsenal" if pd.isna(row["PIM - Teams"]) and "Arsenal" in row["Name"] else 
+        "Juventus" if pd.isna(row["PIM - Teams"]) and "Juventus" in row["Name"] else 
+        "Argentina" if pd.isna(row["PIM - Teams"]) and "Argentina" in row["Name"] else 
+        "Spain" if pd.isna(row["PIM - Teams"]) and "Spain" in row["Name"] else 
+        "Schalke 04" if pd.isna(row["PIM - Teams"]) and "FC Schalke" in row["Name"] else 
+        "Scotland" if pd.isna(row["PIM - Teams"]) and "Scotland 24" in row["Name"] else 
+        "Italy" if pd.isna(row["PIM - Teams"]) and "Italy" in row["Name"] else 
+        "Celtic FC" if pd.isna(row["PIM - Teams"]) and "Celtic FC" in row["Name"] else 
+        "Sweden" if pd.isna(row["PIM - Teams"]) and "Sweden" in row["Name"] else 
+        "Algeria" if pd.isna(row["PIM - Teams"]) and "Algeria 22" in row["Name"] else 
+        "FC Girondins Bordeaux" if pd.isna(row["PIM - Teams"]) and "Girondins de Bordeaux" in row["Name"] else 
+        "Hungary" if pd.isna(row["PIM - Teams"]) and "Hungary 24" in row["Name"] else 
+        "Colombia" if pd.isna(row["PIM - Teams"]) and "Colombia 24" in row["Name"] else 
+        "FC Nürnberg" if pd.isna(row["PIM - Teams"]) and "FC Nürnberg" in row["Name"] else 
+        "Leeds United FC" if pd.isna(row["PIM - Teams"]) and "Leeds United FC" in row["Name"] else 
+        "Black Ferns" if pd.isna(row["PIM - Teams"]) and "Black Ferns" in row["Name"] else 
+        "Mexico" if pd.isna(row["PIM - Teams"]) and "Mexico" in row["Name"] else 
+        "Fulham FC" if pd.isna(row["PIM - Teams"]) and "Fulham FC" in row["Name"] else 
+        "Racing Club de Strasbourg" if pd.isna(row["PIM - Teams"]) and "RC Strasbourg" in row["Name"] else 
+        "AS Roma" if pd.isna(row["PIM - Teams"]) and "AS Roma" in row["Name"] else 
+        "Belgium" if pd.isna(row["PIM - Teams"]) and "Belgium" in row["Name"] else 
+        "Wales" if pd.isna(row["PIM - Teams"]) and "Wales 24" in row["Name"] else 
+        "All Blacks" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["All Blacks", "New Zealand Rugby"]) else 
+        "FC Union Berlin" if pd.isna(row["PIM - Teams"]) and "FC Union Berlin" in row["Name"] else 
+        "Hamburger SV" if pd.isna(row["PIM - Teams"]) and "Hamburger SV" in row["Name"] else 
+        "Northern Ireland" if pd.isna(row["PIM - Teams"]) and "Northern Ireland" in row["Name"] else 
+        "France" if pd.isna(row["PIM - Teams"]) and "France" in row["Name"] else 
+        "Germany" if pd.isna(row["PIM - Teams"]) and "Germany" in row["Name"] else 
+        "LA Galaxy" if pd.isna(row["PIM - Teams"]) and "LA Galaxy" in row["Name"] else 
+        "Olympique Lyon" if pd.isna(row["PIM - Teams"]) and "Olympique Lyonnais" in row["Name"] else 
+        "Chile" if pd.isna(row["PIM - Teams"]) and "Chile 24" in row["Name"] else 
+        "Leicester City" if pd.isna(row["PIM - Teams"]) and "Leicester City FC" in row["Name"] else 
+        "AFC Ajax" if pd.isna(row["PIM - Teams"]) and "Ajax" in row["Name"] else 
+        "Boca Juniors" if pd.isna(row["PIM - Teams"]) and "Boca Juniors" in row["Name"] else 
+        "FC Bayern Munich" if pd.isna(row["PIM - Teams"]) and "FC Bayern" in row["Name"] else 
+        "San Diego FC" if pd.isna(row["PIM - Teams"]) and "San Diego FC" in row["Name"] else 
+        "Tigres" if pd.isna(row["PIM - Teams"]) and "Tigres UANL" in row["Name"] else 
+        "Arsenal FC" if pd.isna(row["PIM - Teams"]) and "AFC " in row["Name"] else 
+        "Louisville Cardinals" if pd.isna(row["PIM - Teams"]) and "University of Louisville" in row["Name"] else 
+        "Texas A&M Aggies" if pd.isna(row["PIM - Teams"]) and "Texas A&M" in row["Name"] else 
+        "Kansas Jayhawks" if pd.isna(row["PIM - Teams"]) and "University of Kansas" in row["Name"] else 
+        "Miami Hurricanes" if pd.isna(row["PIM - Teams"]) and "University of Miami" in row["Name"] else 
+        "Nebraska Cornhuskers" if pd.isna(row["PIM - Teams"]) and ("University of Nebraska" in row["Name"] or "Nebraska" in row["Name"]) else 
+        "Mercedes AMG Petronas Formula One Team" if pd.isna(row["PIM - Teams"]) and "Motorsport" in str(row["PIM - Sport"]) and "Mercedes" in row["Name"] else 
+        "NC State Wolfpack" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["North Carolina State University", "NC State"]) else 
+        "Arizona State University" if pd.isna(row["PIM - Teams"]) and "Arizona State University" in row["Name"] else 
+        "Grambling State Tigers" if pd.isna(row["PIM - Teams"]) and "Grambling State University" in row["Name"] else 
+        "Indiana Hoosiers" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["Indiana University", "Hoosiers"]) else 
+        "Washington Huskies" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["University of Washington", "Huskies"]) else 
+        "Georgia Tech" if pd.isna(row["PIM - Teams"]) and any(x in row["Name"] for x in ["Yellow Jackets", "Georgia Tech"]) else 
+        "Alcorn State Braves" if pd.isna(row["PIM - Teams"]) and "Alcorn State" in row["Name"] else 
+        "Arkansas-Pine Bluff Golden Lions" if pd.isna(row["PIM - Teams"]) and "Arkansas Pine Bluff" in row["Name"] else 
+        "Alabama State Hornets" if pd.isna(row["PIM - Teams"]) and "Alabama State" in row["Name"] else 
+        "Georgia Tech" if pd.isna(row["PIM - Teams"]) and "Georgia Tech" in row["Name"] else 
+        row.get("PIM - Teams")
+    ), axis=1)
+        
 
     return df
     
