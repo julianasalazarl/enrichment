@@ -901,6 +901,41 @@ def enrich_data(df):
         "Platform;Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Gazelle Stack" in row["Name"] else
         row.get("PIM adidas - Product Types")
     ), axis=1)
+    df["Enriched Surface"] = df.apply(lambda row: (
+        "Multi Ground" if pd.isna(row["PIM - Surface"]) and "Multi ground" in row["Name"] else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "trail running" in str(row["PIM - Sport"]).lower() else 
+        "Gravel" if pd.isna(row["PIM - Surface"]) and "The Gravel Cycling" in row["Name"] else 
+        "Indoor" if pd.isna(row["PIM - Surface"]) and "THE INDOOR CYCLING SHOE" in row["Name"] else 
+        "Street" if pd.isna(row["PIM - Surface"]) and "Originals" in str(row["PIM - Label"]) and (
+            "Athletic & Sneakers" in str(row["PIM adidas - Product Types"]) or 
+            "Athletic & Sneakers - T Toe" in str(row["PIM adidas - Product Types"])) else 
+        "Artificial Grass" if pd.isna(row["PIM - Surface"]) and "Artificial Grass" in row["Name"] else 
+        "Clay Court" if pd.isna(row["PIM - Surface"]) and "Clay" in row["Name"] else 
+        "Firm Ground" if pd.isna(row["PIM - Surface"]) and ("Firm Ground" in row["Name"] or "FG" in row["Name"]) else 
+        "Soft Ground" if pd.isna(row["PIM - Surface"]) and "Soft Ground" in row["Name"] else 
+        "Gravel" if pd.isna(row["PIM - Surface"]) and any(x in row["Name"] for x in ["The Gravel", "Five Ten"]) else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "Trailcross" in row["Name"] else 
+        "Turf" if pd.isna(row["PIM - Surface"]) and "Turf" in row["Name"] else 
+        "Indoor-Court" if pd.isna(row["PIM - Surface"]) and "Indoor" in row["Name"] and "Soccer" in str(row["PIM - Sport"]) else 
+        "Road;Treadmill" if pd.isna(row["PIM - Surface"]) and "Running" in str(row["PIM - Sport"]) and 
+            "Athletic & Sneakers" in str(row["PIM adidas - Product Types"]) and any(x in row["Name"] for x in [
+                "4DFWD", "adizero", "Duramo", "Pureboost", "RDY", "Puremotion", "Rapida", "Response", "RunFalcon", 
+                "Solar", "speedmotion", "Supernova", "Switch FWD", "Ultrabounce", "Tensaur", "X9000"]) else 
+        "Track" if pd.isna(row["PIM - Surface"]) and "Track & Field" in str(row["PIM - Sport"]) and "adizero" in row["Name"] else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "Trail Running" in str(row["PIM - Sport"]) and "Agravic" in row["Name"] else 
+        "Road" if pd.isna(row["PIM - Surface"]) and any(x in row["Name"] for x in ["Velosamba", "The Road", "Velostan Smith"]) else 
+        "Hard Court" if pd.isna(row["PIM - Surface"]) and any(x in str(row["PIM - Product Family (productlinestyle)"]) for x in [
+            "adizero Cybersonic", "adizero ubersonic"]) else 
+        "Clay Court" if pd.isna(row["PIM - Surface"]) and "Tennis" in str(row["PIM - Sport"]) and "Clay" in row["Name"] else 
+        "Hard Court" if pd.isna(row["PIM - Surface"]) and any(x in str(row["PIM - Product Line (sportsub)"]) for x in [
+            "Barricade", "CourtJam", "Avacourt", "GameCourt"]) else 
+        "Street" if pd.isna(row["PIM - Surface"]) and "Fear of God Athletics" in str(row["PIM - Label"]) and 
+            "Athletic & Sneakers" in str(row["PIM adidas - Product Types"]) else 
+        "Indoor-Court;Hard Court" if pd.isna(row["PIM - Surface"]) and "Cross Em" in row["Name"] else 
+        "Street" if pd.isna(row["PIM - Surface"]) and "Running" in str(row["PIM - Sport"]) and 
+            "Originals" in str(row["PIM - Label"]) and "Athletic & Sneakers" in str(row["PIM adidas - Product Types"]) else 
+        row.get("PIM - Surface")
+    ), axis=1)
 
     return df
     
