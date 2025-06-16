@@ -695,6 +695,44 @@ def enrich_data(df):
         ]) else
         row.get("PIM - Sport")
     ), axis=1)
+    df["Enriched Activity"] = df.apply(lambda row: (
+        "Outdoor;Athletic" if "Hellcat" in str(row.get("Name", "")) else
+        "Outdoor;Athletic" if "Terrex" in str(row.get("Name", "")) else
+        "Premium" if "Y-3" in str(row.get("PIM - Label", "")) else
+        "Premium" if "Fear of God Athletics" in str(row.get("PIM - Label", "")) else
+        "Premium" if "adidas by Stella McCartney" in str(row.get("PIM - Label", "")) else
+        "Premium" if "Y-3" in str(row.get("Name", "")) else
+        "Premium" if "Fear of God" in str(row.get("Name", "")) else
+        "Premium" if "100 Thieves" in str(row.get("Name", "")) else
+        "Premium" if "Avavav" in str(row.get("Name", "")) else
+        "Premium" if "Sporty & Rich" in str(row.get("Name", "")) else
+        "Premium" if "Dime" in str(row.get("Name", "")) else
+        "Premium" if "Bape" in str(row.get("Name", "")) else
+        "Premium" if "Song For The Mute" in str(row.get("Name", "")) else
+        "Premium" if "Bad Bunny" in str(row.get("Name", "")) else
+        "Premium" if "SPZL" in str(row.get("Name", "")) else
+        "Premium" if "Dingyun Zhang" in str(row.get("Name", "")) else
+        "Premium" if "Edison Chen" in str(row.get("Name", "")) else
+        "Premium" if "SFTM" in str(row.get("Name", "")) else
+        "Premium" if "EQT" in str(row.get("Name", "")) else
+        "Premium" if "Equipment" in str(row.get("Name", "")) else
+        "Premium" if "Korn" in str(row.get("Name", "")) else
+        "Premium" if "JJJJound" in str(row.get("Name", "")) else
+        "Premium" if "Wales Bonner" in str(row.get("Name", "")) else
+        "Premium" if "Willy Chavarria" in str(row.get("Name", "")) else
+        "Premium" if "Brain Dead" in str(row.get("Name", "")) else
+        "Premium" if "Jabbar" in str(row.get("Name", "")) else
+        "Premium" if "Pharrell" in str(row.get("Name", "")) else
+        "Premium" if "CP Company" in str(row.get("Name", "")) else
+        "Premium" if "Minecraft" in str(row.get("Name", "")) else
+        "Premium" if "Fortnite" in str(row.get("Name", "")) else
+        "Premium" if "BW Army" in str(row.get("Name", "")) else
+        "Premium" if "Spongebob" in str(row.get("Name", "")) else
+        "Premium" if "NTS Radio" in str(row.get("Name", "")) else
+        "Premium" if "Rolling Links" in str(row.get("Name", "")) else
+        row.get("")
+    ), axis=1)
+        
     return df
     
 if uploaded_file:
