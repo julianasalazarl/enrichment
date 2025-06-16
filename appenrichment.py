@@ -732,7 +732,33 @@ def enrich_data(df):
         "Premium" if "Rolling Links" in str(row.get("Name", "")) else
         row.get("")
     ), axis=1)
-        
+    df["Enriched Pattern"] = df.apply(lambda row: (
+        "All Over Print" if pd.isna(row.get("PIM - Pattern")) and "All Over Print" in str(row.get("Name", "")) else
+        "Animal" if pd.isna(row.get("PIM - Pattern")) and "Animal" in str(row.get("Name", "")) else
+        "Camo" if pd.isna(row.get("PIM - Pattern")) and "Camo" in str(row.get("Name", "")) else
+        "Camo" if pd.isna(row.get("PIM - Pattern")) and "Camouflage" in str(row.get("Name", "")) else
+        "Graphic Print" if pd.isna(row.get("PIM - Pattern")) and "Graphic" in str(row.get("Name", "")) else
+        "Floral" if pd.isna(row.get("PIM - Pattern")) and "Floral" in str(row.get("Name", "")) else
+        "Floral" if pd.isna(row.get("PIM - Pattern")) and "Flower" in str(row.get("Name", "")) else
+        "Polka Dots" if pd.isna(row.get("PIM - Pattern")) and "Dots" in str(row.get("Name", "")) else
+        "Polka Dots" if pd.isna(row.get("PIM - Pattern")) and "Polka Dots" in str(row.get("Name", "")) else
+        "Tie Dye" if pd.isna(row.get("PIM - Pattern")) and "Tie-Dye" in str(row.get("Name", "")) else
+        "Tie Dye" if pd.isna(row.get("PIM - Pattern")) and "Tie Dye" in str(row.get("Name", "")) else
+        "Metallic" if pd.isna(row.get("PIM - Pattern")) and "Metallic" in str(row.get("Name", "")) else
+        "Flames" if pd.isna(row.get("PIM - Pattern")) and "Flame" in str(row.get("Name", "")) else
+        "Animal" if pd.isna(row.get("PIM - Pattern")) and "Leopard" in str(row.get("Name", "")) else
+        "Animal" if pd.isna(row.get("PIM - Pattern")) and "Zebra" in str(row.get("Name", "")) else
+        "Embroidery" if pd.isna(row.get("PIM - Pattern")) and "Embroidered" in str(row.get("Name", "")) else
+        "Logo Print" if pd.isna(row.get("PIM - Pattern")) and "LOGO" in str(row.get("Name", "")) else
+        "Glitter" if pd.isna(row.get("PIM - Pattern")) and "Glitter" in str(row.get("Name", "")) else
+        "Glitter" if pd.isna(row.get("PIM - Pattern")) and "Rhinestones" in str(row.get("Name", "")) else
+        "Logo Print" if pd.isna(row.get("PIM - Pattern")) and "Logo" in str(row.get("Name", "")) else
+        "Crochet" if pd.isna(row.get("PIM - Pattern")) and "Crochet" in str(row.get("Name", "")) else
+        "Colorblock" if pd.isna(row.get("PIM - Pattern")) and "Colorblock" in str(row.get("Name", "")) else
+        "Color Block" if pd.isna(row.get("PIM - Pattern")) and "Color block" in str(row.get("Name", "")) else
+        "Plaid" if pd.isna(row.get("PIM - Pattern")) and "Plaid" in str(row.get("Name", "")) else
+        row.get("PIM - Pattern")
+    ), axis=1)   
     return df
     
 if uploaded_file:
