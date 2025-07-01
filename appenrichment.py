@@ -238,7 +238,7 @@ def enrich_data(df):
         "ZNE" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Soccer" in str(row.get("PIM - Sport", "")).lower() and "Z.N.E" in str(row.get("Name", "")).lower() else
         "Spezialist" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Spezialist" in str(row.get("Name", "")).lower() else
         "Ligra" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ligra" in str(row.get("Name", "")).lower() else
-        "Essentials" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Essentials" in str(row.get("Name", "")).lower() else
+        "Essentials" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "essentials" in str(row.get("Name", "")).lower() else
         "Worldwide Hoops" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("Worldwide Hoops" in str(row.get("Name", "")).lower() or "WWH " in str(row.get("Name", "")).lower()) else
         "adilenium" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Adilenium" in str(row.get("Name", "")).lower() else
         "Teamwear" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(team.lower() in str(row.get("Name", "")).lower() or team in str(row.get("PIM - Teams", "")).lower() for team in [
@@ -946,7 +946,7 @@ def enrich_data(df):
         "James Harden" if pd.isna(row["PIM - Athletes"]) and "Harden" in str(row.get("Name", "")).lower() else 
         "Tyshawn Jones" if pd.isna(row["PIM - Athletes"]) and "Tyshawn" in str(row.get("Name", "")).lower() else 
         "Dennis Busenitz" if pd.isna(row["PIM - Athletes"]) and "Busenitz" in str(row.get("Name", "")).lower() else 
-        "Lucas Puig" if pd.isna(row["PIM - Athletes"]) and "Puig" in str(row.get("Name", "")).lower() else 
+        "Lucas Puig" if pd.isna(row["PIM - Athletes"]) and "puig" in str(row.get("Name", "")).lower() else 
         "Mark Gonzalez" if pd.isna(row["PIM - Athletes"]) and (
             "Shmoofoil" in str(row.get("Name", "")).lower() or "Shmoofoil" in str(row["PIM - Product Line (sportsub)"]).lower() or 
             "Gonz" in str(row.get("Name", "")) or "Aloha Super" in str(row.get("Name", "")).lower() or "Aloha Super" in str(row["PIM - Product Line (sportsub)"]).lower()) else 
