@@ -1159,9 +1159,9 @@ def enrich_data(df):
         "Spikeless" if pd.isna(row.get("PIM - Features")) and "Golf" in str(row.get("PIM - Sport", "")) and "Spikeless" in str(row.get("Name", "")).lower() else
         "Cushioned" if pd.isna(row.get("PIM - Features")) and "Golf" in str(row.get("PIM - Sport", "")) and "Gazelle" in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
         "Lightweight" if pd.isna(row.get("PIM - Features")) and "Football" in str(row.get("PIM - Sport", "")) and "adizero Electric" in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Electric" in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Impact" in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Instinct" in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Electric" in str(row.get("PIM - Product Family (productlinestyle)", "")) else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Impact" in str(row.get("PIM - Product Family (productlinestyle)", "")) else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Instinct" in str(row.get("PIM - Product Family (productlinestyle)", "")) else
         row.get("PIM - Features")
     ), axis=1)
     df["Enriched Closure"] = df.apply(lambda row: (
