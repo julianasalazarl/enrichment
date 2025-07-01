@@ -78,7 +78,7 @@ def enrich_data(df):
         "Cloudfoam Pure" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Cloudfoam Pure" in str(row.get("Name", "")).lower() else
         "CodeChaos" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Codechaos" in str(row.get("Name", "")).lower() else
         "Cross Em" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Cross Em" in str(row.get("Name", "")).lower() else
-        "D.O.N" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["DON", "D.O.N Issue 5", "D.O.N Issue 6", "D.O.N Issue 7", "D.O.N Issue 8"]).lower() else
+        "D.O.N" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["DON", "D.O.N Issue 5", "D.O.N Issue 6", "D.O.N Issue 7", "D.O.N Issue 8"]) else
         "Designed for Training" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Designed for Training" in str(row.get("Name", "")).lower() else
         "Exhibit" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Exhibit" in str(row.get("Name", "")).lower() else
         "Go-To" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Go-To" in str(row.get("Name", "")).lower() else
@@ -99,7 +99,7 @@ def enrich_data(df):
             "ST Louis City SC", "Toronto FC", "Vancouver Whitecaps", "Jamaica Beckenbauer", "Lightning Third",
             "Washington Huskies", "AFC Ajax", "Benfica", "Celtic FC", "FC Bayern Munich", "Newcastle United FC",
             "Olympique Lyonnais", "Arsenal", "Juventus", "Real Madrid"
-        ]).lower() else
+        ]) else
         "Trailmaker" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Trailmaker" in str(row.get("Name", "")).lower() else
         "TrueCasuals" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TrueCasuals" in str(row.get("Name", "")).lower() else
         "TruePace" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TruePace" in str(row.get("Name", "")).lower() else
@@ -873,16 +873,16 @@ def enrich_data(df):
         "Bike Shoes" if pd.isna(row["PIM adidas - Product Types"]) and "Bike Shoes" in str(row.get("Name", "")).lower() else
         "Bike Shoes" if pd.isna(row["PIM adidas - Product Types"]) and "Cycling" in str(row.get("Name", "")).lower() else
         "High Tops; Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Rivalry High" in str(row.get("Name", "")).lower() else
-        "High Tops; Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM adidas - Product Types"]) and "High Tops" in str(row["PIM adidas - Product Types"]).lower() else
+        "High Tops; Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM adidas - Product Types"]) and "High Tops" in str(row["PIM adidas - Product Types"]) else
         "Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Run 70s Shoes" in str(row.get("Name", "")).lower() else
         "Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Run 80s Shoes" in str(row.get("Name", "")).lower() else
         "Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Puig" in str(row.get("Name", "")).lower() else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Samba" in str(row["PIM - Product Line (sportsub)"]).lower() else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Gazelle" in str(row["PIM - Product Line (sportsub)"]).lower() else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "SL 72" in str(row["PIM - Product Line (sportsub)"]).lower() else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Country" in str(row["PIM - Product Line (sportsub)"]).lower() else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.isna(row["PIM - Product Line (sportsub)"]) and "Originals" in str(row["PIM - Label"]).lower() and "Handball Spezial" in str(row.get("Name", "")).lower() else
-        "Slides;Platform" if pd.isna(row["PIM adidas - Product Types"]) and "Platform" in str(row.get("Name", "")).lower() and "Slides" in str(row["PIM adidas - Product Types"]).lower() else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Samba" in str(row["PIM - Product Line (sportsub)"]) else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Gazelle" in str(row["PIM - Product Line (sportsub)"]) else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "SL 72" in str(row["PIM - Product Line (sportsub)"]) else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Country" in str(row["PIM - Product Line (sportsub)"]) else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.isna(row["PIM - Product Line (sportsub)"]) and "Originals" in str(row["PIM - Label"]) and "Handball Spezial" in str(row.get("Name", "")).lower() else
+        "Slides;Platform" if pd.isna(row["PIM adidas - Product Types"]) and "Platform" in str(row.get("Name", "")).lower() and "Slides" in str(row["PIM adidas - Product Types"]) else
         "Boots" if pd.isna(row["PIM adidas - Product Types"]) and ("Boot" in str(row.get("Name", "")).lower() or "Boots" in str(row.get("Name", "")).lower()) else
         "Platform;Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Bold", "Platform", "XLG", "Sambae"]) else
         "Platform;Clogs" if pd.isna(row["PIM adidas - Product Types"]) and "Stan Smith Mule" in str(row.get("Name", "")).lower() else
@@ -903,7 +903,7 @@ def enrich_data(df):
     ), axis=1)
     df["Enriched Surface"] = df.apply(lambda row: (
         "Multi Ground" if pd.isna(row["PIM - Surface"]) and "Multi ground" in str(row.get("Name", "")).lower() else 
-        "Trail" if pd.isna(row["PIM - Surface"]) and "trail running" in str(row["PIM - Sport"]).lower().lower() else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "trail running" in str(row["PIM - Sport"]).lower() else 
         "Gravel" if pd.isna(row["PIM - Surface"]) and "The Gravel Cycling" in str(row.get("Name", "")).lower() else 
         "Indoor" if pd.isna(row["PIM - Surface"]) and "THE INDOOR CYCLING SHOE" in str(row.get("Name", "")).lower() else 
         "Street" if pd.isna(row["PIM - Surface"]) and "Originals" in str(row["PIM - Label"]).lower() and (
