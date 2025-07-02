@@ -363,7 +363,7 @@ def enrich_data(df):
         "SL 76" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 76" in str(row.get("Name", "")).lower() else
         "Handball Spezial" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Originals" in str(row.get("PIM - Label", "")).lower() and "Handball Spezial" in str(row.get("Name", "")).lower() else
         "Response CL;2000s" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Response CL" in str(row.get("Name", "")).lower() else
-        "Rivalry Low" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Rivalry 86 Low" in str(row.get("Name", "")).lower() or "Rivalry Summer Low" in str(row.get("Name", ""))).lower() else
+        "Rivalry Low" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Rivalry 86 Low" in str(row.get("Name", "")).lower() or "Rivalry Summer Low" in str(row.get("Name", "")).lower()) else
         "Rivalry High" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Rivalry High" in str(row.get("Name", "")).lower() else
         "Ozmillen" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ozmillen" in str(row.get("Name", "")).lower() else
         "Lite Racer Adapt" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Lite Racer Adapt" in str(row.get("Name", "")).lower() else
