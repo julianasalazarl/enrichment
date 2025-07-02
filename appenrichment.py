@@ -374,7 +374,7 @@ def enrich_data(df):
         "Country XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Country XLG" in str(row.get("Name", "")).lower() else
         "Samba XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba XLG" in str(row.get("Name", "")).lower() else
         "Samba OG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba OG" in str(row.get("Name", "")).lower() else
-        "Y-3 Classic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Y-3 Classic" in str(row.get("Name", "")).lower() or "Y-3 CL" in str(row.get("Name", ""))).lower() else
+        "Y-3 Classic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Y-3 Classic" in str(row.get("Name", "")).lower() or "Y-3 CL" in str(row.get("Name", "")).lower()) else
         "Retro Quarter" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Retro Quarter" in str(row.get("Name", "")).lower() else
         "Retro Graphic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Retro Graphic" in str(row.get("Name", "")).lower() else
         "Activeride 2.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Activeride 2.0" in str(row.get("Name", "")).lower() else
