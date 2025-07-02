@@ -660,7 +660,7 @@ def enrich_data(df):
         "Swim;Yoga;Lifestyle" if pd.isna(row.get("PIM - Sport")) and "adilette platform".lower() in str(row.get("Name", "")).lower() else
         "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "advantage".lower() in str(row.get("Name", "")).lower() else
         "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "courtblock".lower() in str(row.get("Name", "")).lower() else
-        "Swim;Yoga;Lifestyle" if pd.isna(row.get("PIM - Sport")) and pd.notna(row.get("PIM adidas - Product Types")) and "Slides" in row.get("PIM adidas - Product Types").lower() else
+        "Swim;Yoga;Lifestyle" if pd.isna(row.get("PIM - Sport")) and pd.notna(row.get("PIM adidas - Product Types")) and "Slides" in row.get("PIM adidas - Product Types") else
         "Dance" if pd.isna(row.get("PIM - Sport")) and "Dance".lower() in str(row.get("Name", "")).lower() else
         "Golf" if pd.isna(row.get("PIM - Sport")) and "Golf".lower() in str(row.get("Name", "")).lower() else
         "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "TrueCasuals".lower() in str(row.get("Name", "")).lower() else
@@ -871,16 +871,16 @@ def enrich_data(df):
         "Bike Shoes" if pd.isna(row["PIM adidas - Product Types"]) and "Bike Shoes".lower() in str(row.get("Name", "")).lower() else
         "Bike Shoes" if pd.isna(row["PIM adidas - Product Types"]) and "Cycling".lower() in str(row.get("Name", "")).lower() else
         "High Tops; Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Rivalry High".lower() in str(row.get("Name", "")).lower() else
-        "High Tops; Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM adidas - Product Types"]) and "High Tops".lower() in str(row["PIM adidas - Product Types"]) else
+        "High Tops; Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM adidas - Product Types"]) and "High Tops".lower() in str(row["PIM adidas - Product Types"]).lower() else
         "Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Run 70s Shoes".lower() in str(row.get("Name", "")).lower() else
         "Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Run 80s Shoes".lower() in str(row.get("Name", "")).lower() else
         "Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Puig".lower() in str(row.get("Name", "")).lower() else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Samba".lower() in str(row["PIM - Product Line (sportsub)"]) else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Gazelle".lower() in str(row["PIM - Product Line (sportsub)"]) else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "SL 72".lower() in str(row["PIM - Product Line (sportsub)"]) else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Country".lower() in str(row["PIM - Product Line (sportsub)"]) else
-        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.isna(row["PIM - Product Line (sportsub)"]) and "Originals".lower() in str(row["PIM - Label"]) and "Handball Spezial".lower() in str(row.get("Name", "")).lower() else
-        "Slides;Platform" if pd.isna(row["PIM adidas - Product Types"]) and "Platform".lower() in str(row.get("Name", "")).lower() and "Slides".lower() in str(row["PIM adidas - Product Types"]) else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Samba".lower() in str(row["PIM - Product Line (sportsub)"]).lower() else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Gazelle".lower() in str(row["PIM - Product Line (sportsub)"]).lower() else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "SL 72".lower() in str(row["PIM - Product Line (sportsub)"]).lower() else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.notna(row["PIM - Product Line (sportsub)"]) and "Country".lower() in str(row["PIM - Product Line (sportsub)"]).lower() else
+        "Athletic & Sneakers - T Toe" if pd.isna(row["PIM adidas - Product Types"]) and pd.isna(row["PIM - Product Line (sportsub)"]) and "Originals".lower() in str(row["PIM - Label"]).lower() and "Handball Spezial".lower() in str(row.get("Name", "")).lower() else
+        "Slides;Platform" if pd.isna(row["PIM adidas - Product Types"]) and "Platform".lower() in str(row.get("Name", "")).lower() and "Slides".lower() in str(row["PIM adidas - Product Types"]).lower() else
         "Boots" if pd.isna(row["PIM adidas - Product Types"]) and ("Boot".lower() in str(row.get("Name", "")).lower() or "Boots".lower() in str(row.get("Name", "")).lower()) else
         "Platform;Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Bold", "Platform", "XLG", "Sambae"]) else
         "Platform;Clogs" if pd.isna(row["PIM adidas - Product Types"]) and "Stan Smith Mule".lower() in str(row.get("Name", "")).lower() else
@@ -1049,25 +1049,25 @@ def enrich_data(df):
         row.get("PIM - Teams")
     ), axis=1)
     df["Enriched Team Kits"] = df.apply(lambda row: (
-        "Home Kit" if pd.isna(row.get("PIM - Team Kits")) and "Home".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Home Kit" if pd.isna(row.get("PIM - Team Kits")) and "Home".lower() in str(row.get("Name", "")) and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Away Kit" if pd.isna(row.get("PIM - Team Kits")) and "Away".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Away Kit" if pd.isna(row.get("PIM - Team Kits")) and "Away".lower() in str(row.get("Name", "")) and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Third Kit" if pd.isna(row.get("PIM - Team Kits")) and "Third".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Third Kit" if pd.isna(row.get("PIM - Team Kits")) and "Third".lower() in str(row.get("Name", "")) and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Pre-Match" if pd.isna(row.get("PIM - Team Kits")) and "Pre-Match".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Pre-Match" if pd.isna(row.get("PIM - Team Kits")) and "Pre-Match".lower() in str(row.get("Name", "")) and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Home Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "Authentic Home".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Away Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "Authentic Away".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Home Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "AU Home".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Away Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "AU Away".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Fourth Kit" if pd.isna(row.get("PIM - Team Kits")) and "Fourth".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Fourth Kit" if pd.isna(row.get("PIM - Team Kits")) and "Fourth".lower() in str(row.get("Name", "")) and "Lifestyle".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Third Kit" if pd.isna(row.get("PIM - Team Kits")) and "Third".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Driver" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")) and "Driver".lower() in str(row.get("Name", "")).lower() else
-        "Mechanic" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")) and "mechanics".lower() in str(row.get("Name", "")).lower() else
-        "Authentic" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")) and "authentic".lower() in str(row.get("Name", "")).lower() else
-        "Replica" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")) and "replica".lower() in str(row.get("Name", "")).lower() else
+        "Home Kit" if pd.isna(row.get("PIM - Team Kits")) and "Home".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Home Kit" if pd.isna(row.get("PIM - Team Kits")) and "Home".lower() in str(row.get("Name", "")).lower() and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Away Kit" if pd.isna(row.get("PIM - Team Kits")) and "Away".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Away Kit" if pd.isna(row.get("PIM - Team Kits")) and "Away".lower() in str(row.get("Name", "")).lower() and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Third Kit" if pd.isna(row.get("PIM - Team Kits")) and "Third".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Third Kit" if pd.isna(row.get("PIM - Team Kits")) and "Third".lower() in str(row.get("Name", "")).lower() and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Pre-Match" if pd.isna(row.get("PIM - Team Kits")) and "Pre-Match".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Pre-Match" if pd.isna(row.get("PIM - Team Kits")) and "Pre-Match".lower() in str(row.get("Name", "")).lower() and "Hockey".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Home Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "Authentic Home".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Away Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "Authentic Away".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Home Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "AU Home".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Away Kit;Authentic" if pd.isna(row.get("PIM - Team Kits")) and "AU Away".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Fourth Kit" if pd.isna(row.get("PIM - Team Kits")) and "Fourth".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Fourth Kit" if pd.isna(row.get("PIM - Team Kits")) and "Fourth".lower() in str(row.get("Name", "")).lower() and "Lifestyle".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Third Kit" if pd.isna(row.get("PIM - Team Kits")) and "Third".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Driver" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")).lower() and "Driver".lower() in str(row.get("Name", "")).lower() else
+        "Mechanic" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")).lower() and "mechanics".lower() in str(row.get("Name", "")).lower() else
+        "Authentic" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")).lower() and "authentic".lower() in str(row.get("Name", "")).lower() else
+        "Replica" if pd.isna(row.get("PIM - Team Kits")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")).lower() and "replica".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Team Kits")
     ), axis=1)
     df["Enriched Technologies"] = df.apply(lambda row: (
@@ -1090,9 +1090,9 @@ def enrich_data(df):
         "EVA" if pd.isna(row.get("PIM - Technologies")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
         "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "Ultraboost 5".lower() in str(row.get("Name", "")).lower() else
         "EVA" if pd.isna(row.get("PIM - Technologies")) and "Country".lower() in str(row.get("Name", "")).lower() else
-        "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "Anthony Edwards".lower() in str(row.get("Name", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
-        "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "D.O.N".lower() in str(row.get("Name", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
-        "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "Trae Young".lower() in str(row.get("Name", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
+        "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "Anthony Edwards".lower() in str(row.get("Name", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
+        "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "D.O.N".lower() in str(row.get("Name", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
+        "Lightboost;Boost" if pd.isna(row.get("PIM - Technologies")) and "Trae Young".lower() in str(row.get("Name", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
         "Bounce" if pd.isna(row.get("PIM - Technologies")) and "Tech Response".lower() in str(row.get("Name", "")).lower() else
         "Torsion" if pd.isna(row.get("PIM - Technologies")) and "Avacourt".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
         "Bounce;Torsion" if pd.isna(row.get("PIM - Technologies")) and "Courtjam Control".lower() in str(row.get("Name", "")).lower() else
@@ -1154,96 +1154,96 @@ def enrich_data(df):
         "Compression" if pd.isna(row.get("PIM - Features")) and "Techfit".lower() in str(row.get("PIM - Technologies", "")).lower() else
         "Grip;Stability" if pd.isna(row.get("PIM - Features")) and "Traxion".lower() in str(row.get("PIM - Technologies", "")).lower() else
         "Grip" if pd.isna(row.get("PIM - Features")) and "Anthony Edwards 1".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
-        "Spikeless" if pd.isna(row.get("PIM - Features")) and "Golf".lower() in str(row.get("PIM - Sport", "")) and "Spikeless".lower() in str(row.get("Name", "")).lower() else
-        "Cushioned" if pd.isna(row.get("PIM - Features")) and "Golf".lower() in str(row.get("PIM - Sport", "")) and "Gazelle".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and "Football".lower() in str(row.get("PIM - Sport", "")) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport in str(row.get("PIM - Sport", "")) for sport in ["Softball", "Baseball"]) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else
+        "Spikeless" if pd.isna(row.get("PIM - Features")) and "Golf".lower() in str(row.get("PIM - Sport", "")).lower() and "Spikeless".lower() in str(row.get("Name", "")).lower() else
+        "Cushioned" if pd.isna(row.get("PIM - Features")) and "Golf".lower() in str(row.get("PIM - Sport", "")).lower() and "Gazelle".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and "Football".lower() in str(row.get("PIM - Sport", "")).lower() and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
         row.get("PIM - Features")
     ), axis=1)
     df["Enriched Closure"] = df.apply(lambda row: (
         "Slip On;Laceless" if pd.isna(row.get("PIM - Closure")) and "Country XLG".lower() in str(row.get("Name", "")).lower() else
-        "Slip On" if pd.isna(row.get("PIM - Closure")) and "Slip On".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
-        "Laceless" if pd.isna(row.get("PIM - Closure")) and "Laceless".lower() in str(row.get("Name", "")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Slip On" if pd.isna(row.get("PIM - Closure")) and "Slip On".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
+        "Laceless" if pd.isna(row.get("PIM - Closure")) and "Laceless".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() else
         "Slip On;Laceless" if pd.isna(row.get("PIM - Closure")) and "NMD 360".lower() in str(row.get("Name", "")).lower() else
         "Slip On;Laceless" if pd.isna(row.get("PIM - Closure")) and "Superstar 360".lower() in str(row.get("Name", "")).lower() else
         "Slip On" if pd.isna(row.get("PIM - Closure")) and "adilette 22".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
-        "BOA Laces" if pd.isna(row.get("PIM - Closure")) and "BOA".lower() in str(row.get("Name", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
+        "BOA Laces" if pd.isna(row.get("PIM - Closure")) and "BOA".lower() in str(row.get("Name", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
         row.get("PIM - Closure")
     ), axis=1)
     df["Enriched Best For"] = df.apply(lambda row: (
-        'Race;Long Distance;Marathon' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "adizero".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Comfort' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "4D".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Comfort;Neutral' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "Duramo".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Comfort;Everyday' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "Supernova".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Comfort;Neutral' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "Solar".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Neutral' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "Response".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Everyday' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "Runfalcon".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Long Distance;Marathon' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) and "adistar".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Speed;Agility;Inside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")) and "F50".lower() in str(row.get("Name", "")).lower() else 
-        'Speed;Agility;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court" not in str(row.get("PIM - Surface", "")) and "F50".lower() in str(row.get("Name", "")).lower() else 
-        'Speed;Inside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")) and "Crazyfast".lower() in str(row.get("Name", "")).lower() else 
-        'Speed;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court" not in str(row.get("PIM - Surface", "")) and "Crazyfast".lower() in str(row.get("Name", "")).lower() else 
-        'Control;Inside;Comfort' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")) and "Copa".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Control;Outside;Comfort' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court" not in str(row.get("PIM - Surface", "")) and "Copa".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Agility;Accuracy;Inside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")) and "Predator".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Agility;Accuracy;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court" not in str(row.get("PIM - Surface", "")) and "Predator".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
-        'Agility;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")) or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")) and "Nemeziz".lower() in str(row.get("PIM - Product Line (sportsub)", "")) else 
-        'Speed;Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")) or "Softball".lower() in str(row.get("PIM - Sport", ""))) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else 
-        'Speed;Agility;Comfort;Stability' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")) or "Softball".lower() in str(row.get("PIM - Sport", ""))) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else 
-        'Speed; Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")) or "Softball".lower() in str(row.get("PIM - Sport", ""))) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else 
-        'Agility' if pd.isna(row.get("PIM - Best For")) and ("adizero Cybersonic".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) or "adizero Ubersonic".lower() in str(row.get("PIM - Product Family (productlinestyle)", ""))) else 
-        'Comfort' if pd.isna(row.get("PIM - Best For")) and "Comfy".lower() in str(row.get("Name", "")) else 
-        'Comfort' if pd.isna(row.get("PIM - Best For")) and "adilette".lower() in str(row.get("Name", "")) else 
-        'Comfort' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")) and "T Shirts".lower() in str(row.get("PIM adidas - Product Types", "")) else 
+        'Race;Long Distance;Marathon' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "adizero".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Comfort' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "4D".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Comfort;Neutral' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "Duramo".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Comfort;Everyday' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "Supernova".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Comfort;Neutral' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "Solar".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Neutral' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "Response".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Everyday' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "Runfalcon".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Long Distance;Marathon' if pd.isna(row.get("PIM - Best For")) and "Running".lower() in str(row.get("PIM - Sport", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() and "adistar".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Speed;Agility;Inside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")).lower() and "F50".lower() in str(row.get("Name", "")).lower() else 
+        'Speed;Agility;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() not in str(row.get("PIM - Surface", "")).lower() and "F50".lower() in str(row.get("Name", "")).lower() else 
+        'Speed;Inside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")).lower() and "Crazyfast".lower() in str(row.get("Name", "")).lower() else 
+        'Speed;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", ""))) and "Indoor-Court".lower() not in str(row.get("PIM - Surface", "")).lower() and "Crazyfast".lower() in str(row.get("Name", "")).lower() else 
+        'Control;Inside;Comfort' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")).lower() and "Copa".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Control;Outside;Comfort' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court" not in str(row.get("PIM - Surface", "")).lower() and "Copa".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Agility;Accuracy;Inside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")).lower() and "Predator".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Agility;Accuracy;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court".lower() not in str(row.get("PIM - Surface", "")).lower() and "Predator".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Agility;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")).lower() and "Nemeziz".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        'Speed;Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
+        'Speed;Agility;Comfort;Stability' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
+        'Speed; Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
+        'Agility' if pd.isna(row.get("PIM - Best For")) and ("adizero Cybersonic".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() or "adizero Ubersonic".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower()) else 
+        'Comfort' if pd.isna(row.get("PIM - Best For")) and "Comfy".lower() in str(row.get("Name", "")).lower() else 
+        'Comfort' if pd.isna(row.get("PIM - Best For")) and "adilette".lower() in str(row.get("Name", "")).lower() else 
+        'Comfort' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and "T Shirts".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else 
         'On-Court' if pd.isna(row.get("PIM - Best For")) and "Basketball Legends".lower() in str(row.get("Name", "")) else 
-        'On-Court' if pd.isna(row.get("PIM - Best For")) and "We Ball Together Badge of Sport".lower() in str(row.get("Name", "")) else 
-        'On-Court' if pd.isna(row.get("PIM - Best For")) and "Badge of Sport".lower() in str(row.get("Name", "")) else 
-        'On-Court' if pd.isna(row.get("PIM - Best For")) and "We Ball Together".lower() in str(row.get("Name", "")) else 
-        'Off-Court' if pd.isna(row.get("PIM - Best For")) and "Fear of God Athletics".lower() in str(row.get("PIM - Label", "")) and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")) else 
-        'Speed' if pd.isna(row.get("PIM - Best For")) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else 
-        'Comfort' if pd.isna(row.get("PIM - Best For")) and "4D".lower() in str(row.get("PIM - Technologies", "")) else 
-        'Speed' if pd.isna(row.get("PIM - Best For")) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")) else
-        "Staying Cool;Comfort" if pd.isna(row.get("PIM - Best For")) and "AEROREADY".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Boost".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Bounce".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry;Staying Cool" if pd.isna(row.get("PIM - Best For")) and "Climachill".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry;Staying Cool" if pd.isna(row.get("PIM - Best For")) and "Climacool".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry;Staying Warm" if pd.isna(row.get("PIM - Best For")) and "Climaheat".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "Climalite".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "Climaproof".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry;Staying Warm" if pd.isna(row.get("PIM - Best For")) and "Climawarm".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort;Everyday" if pd.isna(row.get("PIM - Best For")) and "Cloudfoam".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "CLOUDFOAM PLUS".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry;Staying Warm" if pd.isna(row.get("PIM - Best For")) and "COLD.RDY".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Dreamstrike".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Dreamstrike+".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "EVA".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "Flow Shield".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort" if pd.isna(row.get("PIM - Best For")) and "LIGHT BOOST".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort;Speed" if pd.isna(row.get("PIM - Best For")) and "Lightmotion".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort;Speed" if pd.isna(row.get("PIM - Best For")) and "Lightstrike".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Comfort;Speed" if pd.isna(row.get("PIM - Best For")) and "LIGHTSTRIKEPRO".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Versatility;Comfort" if pd.isna(row.get("PIM - Best For")) and "Primeknit".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "WIND.RDY".lower() in str(row.get("PIM - Technologies", "")) else 
-        "Day Hiking" if pd.isna(row.get("PIM - Best For")) and "Skychaser".lower() in str(row.get("PIM - Product Line (sportsub)", "")) else 
-        "Day Hiking" if pd.isna(row.get("PIM - Best For")) and "Anylander".lower() in str(row.get("PIM - Product Line (sportsub)", "")) else 
-        "Day Hiking" if pd.isna(row.get("PIM - Best For")) and "Trailmaker".lower() in str(row.get("PIM - Product Line (sportsub)", "")) else 
-        "Moderate" if pd.isna(row.get("PIM - Best For")) and "Kirigami".lower() in str(row.get("PIM - Product Line (sportsub)", "")) else 
-        "Moderate" if pd.isna(row.get("PIM - Best For")) and "Hiangle".lower() in str(row.get("PIM - Product Line (sportsub)", "")) else 
+        'On-Court' if pd.isna(row.get("PIM - Best For")) and "We Ball Together Badge of Sport".lower() in str(row.get("Name", "")).lower() else 
+        'On-Court' if pd.isna(row.get("PIM - Best For")) and "Badge of Sport".lower() in str(row.get("Name", "")).lower() else 
+        'On-Court' if pd.isna(row.get("PIM - Best For")) and "We Ball Together".lower() in str(row.get("Name", "")).lower() else 
+        'Off-Court' if pd.isna(row.get("PIM - Best For")) and "Fear of God Athletics".lower() in str(row.get("PIM - Label", "")).lower() and "Athletic & Sneakers".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else 
+        'Speed' if pd.isna(row.get("PIM - Best For")) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
+        'Comfort' if pd.isna(row.get("PIM - Best For")) and "4D".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        'Speed' if pd.isna(row.get("PIM - Best For")) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Staying Cool;Comfort" if pd.isna(row.get("PIM - Best For")) and "AEROREADY".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Boost".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Bounce".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry;Staying Cool" if pd.isna(row.get("PIM - Best For")) and "Climachill".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry;Staying Cool" if pd.isna(row.get("PIM - Best For")) and "Climacool".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry;Staying Warm" if pd.isna(row.get("PIM - Best For")) and "Climaheat".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "Climalite".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "Climaproof".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry;Staying Warm" if pd.isna(row.get("PIM - Best For")) and "Climawarm".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort;Everyday" if pd.isna(row.get("PIM - Best For")) and "Cloudfoam".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "CLOUDFOAM PLUS".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry;Staying Warm" if pd.isna(row.get("PIM - Best For")) and "COLD.RDY".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Dreamstrike".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "Dreamstrike+".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "EVA".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "Flow Shield".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort" if pd.isna(row.get("PIM - Best For")) and "LIGHT BOOST".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort;Speed" if pd.isna(row.get("PIM - Best For")) and "Lightmotion".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort;Speed" if pd.isna(row.get("PIM - Best For")) and "Lightstrike".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Comfort;Speed" if pd.isna(row.get("PIM - Best For")) and "LIGHTSTRIKEPRO".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Versatility;Comfort" if pd.isna(row.get("PIM - Best For")) and "Primeknit".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "WIND.RDY".lower() in str(row.get("PIM - Technologies", "")).lower() else 
+        "Day Hiking" if pd.isna(row.get("PIM - Best For")) and "Skychaser".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        "Day Hiking" if pd.isna(row.get("PIM - Best For")) and "Anylander".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        "Day Hiking" if pd.isna(row.get("PIM - Best For")) and "Trailmaker".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        "Moderate" if pd.isna(row.get("PIM - Best For")) and "Kirigami".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
+        "Moderate" if pd.isna(row.get("PIM - Best For")) and "Hiangle".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
         "On-Court" if pd.isna(row.get("PIM - Best For")) and any(name.lower() in str(row.get("Name", "")).lower() for name in ["Anthony Edwards", "D.O.N", "D.O.N Issue 5", "D.O.N Issue 6", "D.O.N Issue 7", "D.O.N Issue 8", "Dame 8", "Dame", "Trae", "Trae Unlimited"]) else 
-        "On-Court" if pd.isna(row.get("PIM - Best For")) and "Basketball".lower() in str(row.get("PIM - Sport", "")) and "Performance".lower() in str(row.get("PIM - Label", "")) else 
-        "Off-Court" if pd.isna(row.get("PIM - Best For")) and "Basketball".lower() in str(row.get("PIM - Sport", "")) and "Performance" not in str(row.get("PIM - Label", "")) else 
-        "All Mountain" if pd.isna(row.get("PIM - Best For")) and "Five Ten".lower() in str(row.get("Name", "")) and any(label in str(row.get("PIM - Label", "")) for label in ["Mountain Bike", "Lifestyle"]) else 
-        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "RAIN.RDY".lower() in str(row.get("Name", "")) else 
-        "Long Distance" if pd.isna(row.get("PIM - Best For")) and "Adistar".lower() in str(row.get("Name", "")) else 
-        "Staying Cool;Staying Dry" if pd.isna(row.get("PIM - Best For")) and "HEAT.RDY".lower() in str(row.get("Name", "")) else 
-        "Staying Warm" if pd.isna(row.get("PIM - Best For")) and "COLD.RDY".lower() in str(row.get("Name", "")) else 
-        "Train" if pd.isna(row.get("PIM - Best For")) and "Training".lower() in str(row.get("PIM - Sport", "")) else 
-        "Strength Training" if pd.isna(row.get("PIM - Best For")) and any(x in str(row.get("Name", "")) for x in ["Power", "Optime", "Techfit"]) else 
-        "Commute;Cycle" if pd.isna(row.get("PIM - Best For")) and any(x in str(row.get("Name", "")) for x in ["Velosamba", "Velostan Smith"]) else 
-        "Cycle" if pd.isna(row.get("PIM - Best For")) and any(x in str(row.get("Name", "")) for x in ["The Road", "The Gravel", "The Indoor", "Velocade"]) else
+        "On-Court" if pd.isna(row.get("PIM - Best For")) and "Basketball".lower() in str(row.get("PIM - Sport", "")).lower() and "Performance".lower() in str(row.get("PIM - Label", "")).lower() else 
+        "Off-Court" if pd.isna(row.get("PIM - Best For")) and "Basketball".lower() in str(row.get("PIM - Sport", "")).lower() and "Performance".lower() not in str(row.get("PIM - Label", "")).lower() else 
+        "All Mountain" if pd.isna(row.get("PIM - Best For")) and "Five Ten".lower() in str(row.get("Name", "")).lower() and any(label.lower() in str(row.get("PIM - Label", "")).lower() for label in ["Mountain Bike", "Lifestyle"]) else 
+        "Staying Dry" if pd.isna(row.get("PIM - Best For")) and "RAIN.RDY".lower() in str(row.get("Name", "")).lower() else 
+        "Long Distance" if pd.isna(row.get("PIM - Best For")) and "Adistar".lower() in str(row.get("Name", "")).lower() else 
+        "Staying Cool;Staying Dry" if pd.isna(row.get("PIM - Best For")) and "HEAT.RDY".lower() in str(row.get("Name", "")).lower() else 
+        "Staying Warm" if pd.isna(row.get("PIM - Best For")) and "COLD.RDY".lower() in str(row.get("Name", "")).lower() else 
+        "Train" if pd.isna(row.get("PIM - Best For")) and "Training".lower() in str(row.get("PIM - Sport", "")).lower() else 
+        "Strength Training" if pd.isna(row.get("PIM - Best For")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Power", "Optime", "Techfit"]) else 
+        "Commute;Cycle" if pd.isna(row.get("PIM - Best For")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Velosamba", "Velostan Smith"]) else 
+        "Cycle" if pd.isna(row.get("PIM - Best For")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["The Road", "The Gravel", "The Indoor", "Velocade"]) else
         row.get("PIM - Best For")
     ), axis=1)
     return df
