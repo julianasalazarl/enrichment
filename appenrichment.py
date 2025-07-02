@@ -363,7 +363,7 @@ def enrich_data(df):
         "SL 76" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 76" in str(row.get("Name", "")).lower() else
         "Handball Spezial" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Originals" in str(row.get("PIM - Label", "")).lower() and "Handball Spezial" in str(row.get("Name", "")).lower() else
         "Response CL;2000s" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Response CL" in str(row.get("Name", "")).lower() else
-        "Rivalry Low" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Rivalry 86 Low" in str(row.get("Name", "")) or "Rivalry Summer Low" in str(row.get("Name", ""))).lower() else
+        "Rivalry Low" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Rivalry 86 Low" in str(row.get("Name", "")).lower() or "Rivalry Summer Low" in str(row.get("Name", ""))).lower() else
         "Rivalry High" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Rivalry High" in str(row.get("Name", "")).lower() else
         "Ozmillen" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Ozmillen" in str(row.get("Name", "")).lower() else
         "Lite Racer Adapt" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Lite Racer Adapt" in str(row.get("Name", "")).lower() else
@@ -374,7 +374,7 @@ def enrich_data(df):
         "Country XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Country XLG" in str(row.get("Name", "")).lower() else
         "Samba XLG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba XLG" in str(row.get("Name", "")).lower() else
         "Samba OG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba OG" in str(row.get("Name", "")).lower() else
-        "Y-3 Classic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Y-3 Classic" in str(row.get("Name", "")) or "Y-3 CL" in str(row.get("Name", ""))).lower() else
+        "Y-3 Classic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("Y-3 Classic" in str(row.get("Name", "")).lower() or "Y-3 CL" in str(row.get("Name", ""))).lower() else
         "Retro Quarter" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Retro Quarter" in str(row.get("Name", "")).lower() else
         "Retro Graphic" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Retro Graphic" in str(row.get("Name", "")).lower() else
         "Activeride 2.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Activeride 2.0" in str(row.get("Name", "")).lower() else
@@ -948,8 +948,8 @@ def enrich_data(df):
         "Dennis Busenitz" if pd.isna(row["PIM - Athletes"]) and "Busenitz" in str(row.get("Name", "")).lower() else 
         "Lucas Puig" if pd.isna(row["PIM - Athletes"]) and "puig" in str(row.get("Name", "")).lower() else 
         "Mark Gonzalez" if pd.isna(row["PIM - Athletes"]) and (
-            "Shmoofoil" in str(row.get("Name", "")).lower() or "Shmoofoil" in str(row["PIM - Product Line (sportsub)"]).lower() or 
-            "Gonz" in str(row.get("Name", "")) or "Aloha Super" in str(row.get("Name", "")).lower() or "Aloha Super" in str(row["PIM - Product Line (sportsub)"]).lower()) else 
+            "shmoofoil" in str(row.get("Name", "")).lower() or "shmoofoil" in str(row["PIM - Product Line (sportsub)"]).lower() or 
+            "Gonz" in str(row.get("Name", "")).lower() or "aloha Super" in str(row.get("Name", "")).lower() or "aloha Super" in str(row["PIM - Product Line (sportsub)"]).lower()) else 
         "Patrick Mahomes" if pd.isna(row["PIM - Athletes"]) and "Mahomes" in str(row.get("Name", "")).lower() else 
         "Nora Vasconcellos" if pd.isna(row["PIM - Athletes"]) and "Nora " in str(row.get("Name", "")).lower() else 
         "Heitor Da Silva" if pd.isna(row["PIM - Athletes"]) and "Pro Shell ADV x Heitor" in str(row.get("Name", "")).lower() else 
