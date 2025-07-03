@@ -192,6 +192,35 @@ def enrich_data(df):
         "adibreak" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ADBRK".lower() in str(row.get("Name", "")).lower() else
         "Lacombe" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Lacombe".lower() in str(row.get("Name", "")).lower() else
         "Hoop York City" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["HYC", "Hoop York City"]) else
+        "X" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["X Crazyfast", "X Speedportal"]) else
+        "4DFWD" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "4DFWD".lower() in str(row.get("Name", "")).lower() else
+        "Own the Run" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Own the Run".lower() in str(row.get("Name", "")).lower() else
+        "Ultrabounce" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ultrabounce".lower() in str(row.get("Name", "")).lower() else
+        "ALL SZN" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ALL SZN".lower() in str(row.get("Name", "")).lower() else
+        "Duramo" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Duramo".lower() in str(row.get("Name", "")).lower() else
+        "XPLR" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["X_PLR", "XPLR"]) else
+        "ZNE" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Z.N.E".lower() in str(row.get("Name", "")).lower() else
+        "City Escape" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "City Escape".lower() in str(row.get("Name", "")).lower() else
+        "FortaRun" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "FortaRun".lower() in str(row.get("Name", "")).lower() else
+        "RunFalcon" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "RunFalcon".lower() in str(row.get("Name", "")).lower() else
+        "Racer" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Racer TR".lower() in str(row.get("Name", "")).lower() else
+        "VL Court" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "VL Court".lower() in str(row.get("Name", "")).lower() else
+        "Front Court" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Front Court".lower() in str(row.get("Name", "")).lower() else
+        "Ubounce" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ubounce".lower() in str(row.get("Name", "")).lower() else
+        "Breaknet" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Breaknet".lower() in str(row.get("Name", "")).lower() else
+        "Grand Court" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Grand Court".lower() in str(row.get("Name", "")).lower() else
+        "Postmove" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Postmove".lower() in str(row.get("Name", "")).lower() else
+        "Alphaboost" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "alphaboost".lower() in str(row.get("Name", "")).lower() else
+        "Puremotion" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Puremotion".lower() in str(row.get("Name", "")).lower() else
+        "Kaptir" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Kaptir".lower() in str(row.get("Name", "")).lower() else
+        "ZNSORED" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ZNSORED".lower() in str(row.get("Name", "")).lower() else
+        "Future Icons" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Future Icons".lower() in str(row.get("Name", "")).lower() else
+        "Lite Racer" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Lite Racer".lower() in str(row.get("Name", "")).lower() else
+        "Grand Court" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["grand court alpha", "Grand Court"]) else
+        "Alphabounce" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["alphabounce", "Alphabounce+"]) else
+        "adicane" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "adicane".lower() in str(row.get("Name", "")).lower() else
+        "Advantage" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "advantage".lower() in str(row.get("Name", "")).lower() else
+        "Courtblock" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "courtblock".lower() in str(row.get("Name", "")).lower() else
         "ZNE" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ZNE".lower() in str(row.get("Name", "")).lower() else
         "Koln" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Koln".lower() in str(row.get("Name", "")).lower() else
         "Munchen" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Munchen".lower() in str(row.get("Name", "")).lower() else
