@@ -65,7 +65,7 @@ def enrich_data(df):
         "Aleon" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Five Ten Aleon".lower() in str(row.get("Name", "")).lower() else
         "Crawe" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Five Ten Crawe".lower() in str(row.get("Name", "")).lower() else
         "Agravic Speed" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX Agravic Speed Ultra".lower() in str(row.get("Name", "")).lower() else
-        "AX4" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX AX4".lower() in str(row.get("Name", "")).lower() else
+        "AX" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX AX4".lower() in str(row.get("Name", "")).lower() else
         "Eastrail" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX Eastrail".lower() in str(row.get("Name", "")).lower() else
         "Free Hiker" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX Free Hiker".lower() in str(row.get("Name", "")).lower() else
         "Skychaser" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TERREX Skychaser".lower() in str(row.get("Name", "")).lower() else
