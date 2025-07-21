@@ -20,7 +20,7 @@ def enrich_data(df):
         "Agravic" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "terrex agravic".lower() in str(row.get("Name", "")).lower() else
         "Samba;60s" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "samba 62" in str(row.get("Name", "")).lower() else
         "Superstar" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "superstar" in str(row.get("Name", "")).lower() else
-        "Freerider" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "five ten freerider" in str(row.get("Name", "")).lower() else
+        "Freerider" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "freerider" in str(row.get("Name", "")).lower() else
         "Aleon" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "five ten aleon" in str(row.get("Name", "")).lower() else
         "Crawe" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "five ten crawe" in str(row.get("Name", "")).lower() else
         "Hellcat" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "five ten hellcat" in str(row.get("Name", "")).lower() else
@@ -132,7 +132,6 @@ def enrich_data(df):
         "Start Your Run" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Start Your Run".lower() in str(row.get("Name", "")).lower() else
         "Activeride" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Activeride 2.0".lower() in str(row.get("Name", "")).lower() else
         "ZNCHILL" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "ZNCHILL".lower() in str(row.get("Name", "")).lower() else
-        "Solarmotion" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Solarmotion".lower() in str(row.get("Name", "")).lower() else
         "Kantana" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Kantana Shoes".lower() in str(row.get("Name", "")).lower() else
         "Midcity" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Midcity Low Shoes".lower() in str(row.get("Name", "")).lower() else
         "Winterplay" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Winterplay".lower() in str(row.get("Name", "")).lower() else
@@ -293,6 +292,9 @@ def enrich_data(df):
         "Adiracer" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Motorsport".lower() in str(row.get("PIM - Sport", "")).lower() and "Adiracer".lower() in str(row.get("Name", "")).lower() else
         "Heritage" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Tennis".lower() in str(row.get("PIM - Sport", "")).lower() and "Heritage".lower() in str(row.get("Name", "")).lower() else
         "Defiant Speed" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Tennis".lower() in str(row.get("PIM - Sport", "")).lower() and "Defiant".lower() in str(row.get("Name", "")).lower() else
+        "Beyond the Course" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Golf".lower() in str(row.get("PIM - Sport", "")).lower() and "Beyond".lower() in str(row.get("Name", "")).lower() else
+        "TrueNature" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TrueNature".lower() in str(row.get("Name", "")).lower() else
+        "FreeLift" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "FreeLift".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Product Line (sportsub)")
     ), axis=1)
     
@@ -365,7 +367,7 @@ def enrich_data(df):
         "Agravic Ultra" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TERREX Agravic Ultra".lower() in str(row.get("Name", "")).lower() else
         "SL 72 RTN" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "SL 72 RTN".lower() in str(row.get("Name", "")).lower() else
         "Anthony Edwards 1" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Anthony Edwards 1".lower() in str(row.get("Name", "")).lower() else
-        "3 Stripes" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("3 Stripes".lower() in str(row.get("Name", "")).lower() or "3-Stripes".lower() in str(row.get("Name", "")).lower()) else
+        "3 stripes" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and ("3 Stripes".lower() in str(row.get("Name", "")).lower() or "3-Stripes".lower() in str(row.get("Name", "")).lower()) else
         "F50 Pro" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "F50 Pro".lower() in str(row.get("Name", "")).lower() else
         "F50 Elite" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "F50 Elite".lower() in str(row.get("Name", "")).lower() else
         "F50 League" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "F50 League".lower() in str(row.get("Name", "")).lower() else
