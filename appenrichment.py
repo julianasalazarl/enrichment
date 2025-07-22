@@ -264,7 +264,6 @@ def enrich_data(df):
         "ZNE" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and "Z.N.E".lower() in str(row.get("Name", "")).lower() else
         "Spezialist" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Spezialist".lower() in str(row.get("Name", "")).lower() else
         "Ligra" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Ligra".lower() in str(row.get("Name", "")).lower() else
-        "Essentials" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "essentials".lower() in str(row.get("Name", "")).lower() else
         "Worldwide Hoops" if pd.isna(row.get("PIM - Product Line (sportsub)")) and ("Worldwide Hoops".lower() in str(row.get("Name", "")).lower() or "WWH ".lower() in str(row.get("Name", "")).lower()) else
         "adilenium" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "adilenium".lower() in str(row.get("Name", "")).lower() else
         "Teamwear" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(team.lower() in str(row.get("Name", "")).lower() or team in str(row.get("PIM - Teams", "")).lower() for team in [
@@ -499,6 +498,9 @@ def enrich_data(df):
         "Initiation" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Initiation".lower() in str(row.get("Name", "")).lower() else
         "Pro Model" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Pro Model".lower() in str(row.get("Name", "")).lower() else
         "Campus 00s Beta" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Campus 00s Beta".lower() in str(row.get("Name", "")).lower() else
+        "Essentials" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Essentials".lower() in str(row.get("Name", "")).lower() else
+        "AX4" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TERREX AX4".lower() in str(row.get("Name", "")).lower() else
+        "adizero Chaos" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adizero Chaos".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Product Family (productlinestyle)")
     ), axis=1)
 
