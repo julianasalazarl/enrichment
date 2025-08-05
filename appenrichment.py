@@ -149,7 +149,7 @@ def enrich_data(df):
         "Matchbreak" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Matchbreak".lower() in str(row.get("Name", "")).lower() else
         "Crazy" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Crazy".lower() in str(row.get("Name", "")).lower() else
         "Crazyflight" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Crazyflight".lower() in str(row.get("Name", "")).lower() else
-        "Adibreak" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Adibreak".lower() in str(row.get("Name", "")).lower() else
+        "Adibreak;adicolor" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Adibreak".lower() in str(row.get("Name", "")).lower() else
         "Select" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Select".lower() in str(row.get("Name", "")).lower() else
         "All Me" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "All Me ".lower() in str(row.get("Name", "")).lower() else
         "Designed for Training" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["D4T", "Designed-for-Training"]) else
@@ -294,6 +294,19 @@ def enrich_data(df):
         "Beyond the Course" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Golf".lower() in str(row.get("PIM - Sport", "")).lower() and "Beyond".lower() in str(row.get("Name", "")).lower() else
         "TrueNature" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "TrueNature".lower() in str(row.get("Name", "")).lower() else
         "FreeLift" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "FreeLift".lower() in str(row.get("Name", "")).lower() else
+        "Adiracer" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Adi Racer".lower() in str(row.get("Name", "")).lower() else
+        "Skychaser" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Skychaser".lower() in str(row.get("Name", "")).lower() else
+        "Subzone" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Subzone".lower() in str(row.get("Name", "")).lower() else
+        "Intimidation" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Intimidation".lower() in str(row.get("Name", "")).lower() else
+        "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
+        "GSG9" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "GSG9".lower() in str(row.get("Name", "")).lower() else
+        "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
+        "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
+
+
+
+        
+
         row.get("PIM - Product Line (sportsub)")
     ), axis=1)
     
@@ -874,7 +887,6 @@ def enrich_data(df):
         "Fortnite" if pd.isna(row["PIM - Partner"]) and "Fortnite".lower() in str(row.get("Name", "")).lower() else
         "Teamgeist" if pd.isna(row["PIM - Partner"]) and "Teamgeist".lower() in str(row.get("Name", "")).lower() else
         "Willy Chavarria" if pd.isna(row["PIM - Partner"]) and "Willy Chavarria".lower() in str(row.get("Name", "")).lower() else
-        "OG LA" if pd.isna(row["PIM - Partner"]) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["OG L.A", "OG LA"]) else
         "College" if pd.isna(row["PIM - Partner"]) and (
             "Collegiate".lower() in str(row.get("Name", "")).lower() or
             any(x.lower() in str(row.get("Name", "")).lower() for x in [
@@ -1134,6 +1146,8 @@ def enrich_data(df):
         "EVA" if pd.isna(row.get("PIM - Technologies")) and "Country Soft".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
         "Cloudfoam" if pd.isna(row.get("PIM - Technologies")) and "RunFalcon".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
         "PrimaLoft" if pd.isna(row.get("PIM - Technologies")) and "PrimaLoft".lower() in str(row.get("Name", "")).lower() else
+        "Lightstrike;ORTHOLITE" if pd.isna(row.get("PIM - Technologies")) and "S2G 24 Spikeless".lower() in str(row.get("Name", "")).lower() else
+
         row.get("PIM - Technologies")
     ), axis=1)
     df["Enriched Features"] = df.apply(lambda row: (
@@ -1194,6 +1208,7 @@ def enrich_data(df):
         "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
         "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
         row.get("PIM - Features")
+        
     ), axis=1)
     df["Enriched Closure"] = df.apply(lambda row: (
         "Slip On;Laceless" if pd.isna(row.get("PIM - Closure")) and "Country XLG".lower() in str(row.get("Name", "")).lower() else
@@ -1305,3 +1320,4 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
