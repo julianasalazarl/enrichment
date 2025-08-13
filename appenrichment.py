@@ -300,7 +300,7 @@ def enrich_data(df):
         "Intimidation" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Intimidation".lower() in str(row.get("Name", "")).lower() else
         "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
         "GSG9" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "GSG9".lower() in str(row.get("Name", "")).lower() else
-        "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
+        "Handball Top" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Handball Top".lower() in str(row.get("Name", "")).lower() else
         "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
 
 
@@ -1320,4 +1320,5 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
