@@ -517,6 +517,42 @@ def enrich_data(df):
         "Essentials" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Essentials".lower() in str(row.get("Name", "")).lower() else
         "AX4" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "TERREX AX4".lower() in str(row.get("Name", "")).lower() else
         "adizero Chaos" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adizero Chaos".lower() in str(row.get("Name", "")).lower() else
+        "AX5" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "AX5".lower() in str(row.get("Name", "")).lower() else
+        "Samba Super" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba Super".lower() in str(row.get("Name", "")).lower() else
+        "Anthony Edwards 2" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Anthony Edwards 2".lower() in str(row.get("Name", "")).lower() else
+        "Adistar Control 5" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adistar Control 5".lower() in str(row.get("Name", "")).lower() else
+        "Tiro 26" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Tiro 26".lower() in str(row.get("Name", "")).lower() else
+        "Samba 62" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba 62".lower() in str(row.get("Name", "")).lower() else
+        "Megaride O1" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Megaride O1".lower() in str(row.get("Name", "")).lower() else
+        "Gazelle Stack" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Gazelle Stack".lower() in str(row.get("Name", "")).lower() else
+        "Puig Indoor" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Puig Indoor".lower() in str(row.get("Name", "")).lower() else
+        "Forum2000" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Forum2000".lower() in str(row.get("Name", "")).lower() else
+        "Taekwondo Mei" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Taekwondo Mei".lower() in str(row.get("Name", "")).lower() else
+        "adizero Adios OG" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "adizero Adios OG".lower() in str(row.get("Name", "")).lower() else
+        "Forum ADV" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Forum 84".lower() in str(row.get("Name", "")).lower() else
+        "Crazy Warm" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Crazy Warm".lower() in str(row.get("Name", "")).lower() else
+        "adistar Hrmy" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "adistar Hrmy".lower() in str(row.get("Name", "")).lower() else
+        "Adilenium Season 4" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adilenium Season 4".lower() in str(row.get("Name", "")).lower() else
+        "Adimule" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adimule".lower() in str(row.get("Name", "")).lower() else
+        "Gazelle Sala" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Gazelle Sala".lower() in str(row.get("Name", "")).lower() else
+        "Samba JP" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba JP".lower() in str(row.get("Name", "")).lower() else
+        "Stan Smith Mule" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Stan Smith Mule".lower() in str(row.get("Name", "")).lower() else
+        "Hoops 4.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Hoops 4.0".lower() in str(row.get("Name", "")).lower() else
+        "Samba 360" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba 360".lower() in str(row.get("Name", "")).lower() else
+        "Dropset 3" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Dropset 3".lower() in str(row.get("Name", "")).lower() else
+        "Dropset Control" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Dropset Control".lower() in str(row.get("Name", "")).lower() else
+        "Monofit" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Monofit".lower() in str(row.get("Name", "")).lower() else
+        "Hoops 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Hoops 3.0".lower() in str(row.get("Name", "")).lower() else
+        "Runfalcon 3.0" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Runfalcon 3.0".lower() in str(row.get("Name", "")).lower() else
+        "Runfalcon 5" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Runfalcon 5".lower() in str(row.get("Name", "")).lower() else
+        "adiPURE" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "adiPure".lower() in str(row.get("Name", "")).lower() else
+        "Adilette Ayoon" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Adilette Ayoon".lower() in str(row.get("Name", "")).lower() else
+        "Campus Crib" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Campus Crib".lower() in str(row.get("Name", "")).lower() else
+        "Campus 00s Winter" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Campus 00s Winter".lower() in str(row.get("Name", "")).lower() else
+        "Samba Jane" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Samba Jane".lower() in str(row.get("Name", "")).lower() else
+        "Superstar Vintage" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Superstar Vintage".lower() in str(row.get("Name", "")).lower() else
+        "Falcon Galaxy" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and "Falcon Galaxy".lower() in str(row.get("Name", "")).lower() else
+        "Samba LT" if pd.isna(row.get("PIM - Product Family (productlinestyle)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Samba Long Tongue", "Samba LT"]) else
         row.get("PIM - Product Family (productlinestyle)")
     ), axis=1)
 
@@ -1321,6 +1357,7 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
 
 
