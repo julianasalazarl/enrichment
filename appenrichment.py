@@ -301,12 +301,15 @@ def enrich_data(df):
         "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
         "GSG9" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "GSG9".lower() in str(row.get("Name", "")).lower() else
         "Handball Top" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Handball Top".lower() in str(row.get("Name", "")).lower() else
-        "BW Army" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "BW Army".lower() in str(row.get("Name", "")).lower() else
-
-
-
-        
-
+        "Rekive" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Rekive".lower() in str(row.get("Name", "")).lower() else
+        "Teamgeist" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Teamgeist".lower() in str(row.get("Name", "")).lower() else
+        "adiFOM" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Stan Smith Mule".lower() in str(row.get("Name", "")).lower() else
+        "Kirigami" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Kirigami".lower() in str(row.get("Name", "")).lower() else
+        "Niad" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Niad".lower() in str(row.get("Name", "")).lower() else
+        "Hydroterra" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Hydroterra".lower() in str(row.get("Name", "")).lower() else
+        "Nova" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Nova".lower() in str(row.get("Name", "")).lower() else
+        "Ultimate;Ultimate365" if pd.isna(row.get("PIM - Product Line (sportsub)")) and "Uiltimate".lower() in str(row.get("Name", "")).lower() else
+        "Graphics" if pd.isna(row.get("PIM - Product Line (sportsub)")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Graphic Tee", "Graphics Tee"]) else
         row.get("PIM - Product Line (sportsub)")
     ), axis=1)
     
@@ -974,9 +977,7 @@ def enrich_data(df):
             "Barricade", "CourtJam", "Avacourt", "GameCourt"]) else 
         "Street" if pd.isna(row["PIM - Surface"]) and "Fear of God Athletics".lower() in str(row["PIM - Label"]).lower() and 
             "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() else 
-        "Indoor-Court;Hard Court" if pd.isna(row["PIM - Surface"]) and "Cross Em".lower() in str(row.get("Name", "")).lower() else 
-        "Street" if pd.isna(row["PIM - Surface"]) and "Running".lower() in str(row["PIM - Sport"]).lower() and 
-            "Originals".lower() in str(row["PIM - Label"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() else 
+        "Indoor-Court;Hard Court" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Cross Em".lower() in str(row.get("Name", "")).lower() else  
         row.get("PIM - Surface")
     ), axis=1)
     df["Enriched Athletes"] = df.apply(lambda row: (
@@ -1320,5 +1321,6 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
 
