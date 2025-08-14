@@ -769,7 +769,7 @@ def enrich_data(df):
             "Benfica", "Celtic FC", "FC Bayern Munich", "Newcastle United FC", "Olympique Lyonnais", "Arsenal"
         ]) else
         "Lifestyle" if pd.isna(row.get("PIM - Sport")) and "ZNSORED High".lower() in str(row.get("Name", "")).lower() else
-        "Training;Weightlifting" if pd.isna(row.get("PIM - Sport")) and "Dropset".lower() in str(row.get("Name", "")).lower() else
+        "Workout;Weightlifting" if pd.isna(row.get("PIM - Sport")) and "Dropset".lower() in str(row.get("Name", "")).lower() else
         "Weightlifting" if pd.isna(row.get("PIM - Sport")) and "The Total".lower() in str(row.get("Name", "")).lower() else
         "Basketball;Lifestyle" if pd.isna(row.get("PIM - Sport")) and "Fear of God Athletics".lower() in str(row.get("PIM - Label", "")).lower() else
         "Skateboarding;Lifestyle" if pd.isna(row.get("PIM - Sport")) and any(name.lower() in str(row.get("Name", "")).lower() for name in [
@@ -813,6 +813,10 @@ def enrich_data(df):
         "Premium" if "Spongebob".lower() in str(row.get("Name", "")).lower() else
         "Premium" if "NTS Radio".lower() in str(row.get("Name", "")).lower() else
         "Premium" if "Rolling Links".lower() in str(row.get("Name", "")).lower() else
+        "Premium" if "Consortium".lower() in str(row.get("Name", "")).lower() else
+        "Premium" if "Oasis".lower() in str(row.get("Name", "")).lower() else
+        "Premium" if "Zootopia".lower() in str(row.get("Name", "")).lower() else
+        "Casual" if "Originals".lower() in str(row.get("Name", "")).lower() else
         row.get("")
     ), axis=1)
     df["Enriched Pattern"] = df.apply(lambda row: (
@@ -840,6 +844,12 @@ def enrich_data(df):
         "Colorblock" if pd.isna(row.get("PIM - Pattern")) and "Colorblock".lower() in str(row.get("Name", "")).lower() else
         "Color Block" if pd.isna(row.get("PIM - Pattern")) and "Color block".lower() in str(row.get("Name", "")).lower() else
         "Plaid" if pd.isna(row.get("PIM - Pattern")) and "Plaid".lower() in str(row.get("Name", "")).lower() else
+        "Ombre" if pd.isna(row.get("PIM - Pattern")) and "Gradient".lower() in str(row.get("Name", "")).lower() else
+        "Embroidery" if pd.isna(row.get("PIM - Pattern")) and "Embroidery".lower() in str(row.get("Name", "")).lower() else
+        "Monogram" if pd.isna(row.get("PIM - Pattern")) and "Monogram".lower() in str(row.get("Name", "")).lower() else
+        "Animal" if pd.isna(row.get("PIM - Pattern")) and "Snake".lower() in str(row.get("Name", "")).lower() else
+        "Geometric" if pd.isna(row.get("PIM - Pattern")) and "Geometric".lower() in str(row.get("Name", "")).lower() else
+        "Animal" if pd.isna(row.get("PIM - Pattern")) and "Snakeskin".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Pattern")
     ), axis=1)
     df["Enriched Base Material"] = df.apply(lambda row: (
@@ -852,7 +862,6 @@ def enrich_data(df):
         ) else
         "Piqué" if pd.isna(row.get("PIM - Base Material")) and "Pique".lower() in str(row.get("Name", "")).lower() else
         "Microfiber" if pd.isna(row.get("PIM - Base Material")) and "Microfiber".lower() in str(row.get("Name", "")).lower() else
-        "Wool" if pd.isna(row.get("PIM - Base Material")) and "Wool".lower() in str(row.get("Name", "")).lower() else
         "Molded" if pd.isna(row.get("PIM - Base Material")) and "Molded".lower() in str(row.get("Name", "")).lower() else
         "Cashmere" if pd.isna(row.get("PIM - Base Material")) and "Cashmere".lower() in str(row.get("Name", "")).lower() else
         "Twistknit" if pd.isna(row.get("PIM - Base Material")) and "Twistknit".lower() in str(row.get("Name", "")).lower() else
@@ -872,6 +881,16 @@ def enrich_data(df):
             "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and
             "T Shirts".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
         "Twistweave" if pd.isna(row.get("PIM - Base Material")) and "Twistweave".lower() in str(row.get("Name", "")).lower() else
+        "Corduroy" if pd.isna(row.get("PIM - Base Material")) and "Corduroy".lower() in str(row.get("Name", "")).lower() else
+        "Suede" if pd.isna(row.get("PIM - Base Material")) and "Suede".lower() in str(row.get("Name", "")).lower() else
+        "Metal" if pd.isna(row.get("PIM - Base Material")) and "Metal".lower() in str(row.get("Name", "")).lower() else
+        "Twill" if pd.isna(row.get("PIM - Base Material")) and "Twill".lower() in str(row.get("Name", "")).lower() else
+        "Knit" if pd.isna(row.get("PIM - Base Material")) and "Knit".lower() in str(row.get("Name", "")).lower() else
+        "Woven" if pd.isna(row.get("PIM - Base Material")) and "Woven".lower() in str(row.get("Name", "")).lower() else
+        "Latex" if pd.isna(row.get("PIM - Base Material")) and "Latex".lower() in str(row.get("Name", "")).lower() else
+        "Primegreen" if pd.isna(row.get("PIM - Base Material")) and "Primegreen".lower() in str(row.get("Name", "")).lower() else
+        "French Terry" if pd.isna(row.get("PIM - Base Material")) and "French Terry".lower() in str(row.get("Name", "")).lower() else
+        "Knitted" if pd.isna(row.get("PIM - Base Material")) and "Knit".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Base Material")
     ), axis=1)
     df["Enriched Partner"] = df.apply(lambda row: (
@@ -946,6 +965,15 @@ def enrich_data(df):
                 "Mississippi State Bulldogs", "Alabama State Hornets"
             ])
         ) else
+        "FIFA World Cup" if pd.isna(row["PIM - Partner"]) and "World Cup  26".lower() in str(row.get("Name", "")).lower() else
+        "MIAOU" if pd.isna(row["PIM - Partner"]) and "MIAOU".lower() in str(row.get("Name", "")).lower() else
+        "Oasis" if pd.isna(row["PIM - Partner"]) and "Oasis".lower() in str(row.get("Name", "")).lower() else
+        "Simpsons;Disney" if pd.isna(row["PIM - Partner"]) and "Simpsons".lower() in str(row.get("Name", "")).lower() else
+        "Metalwood" if pd.isna(row["PIM - Partner"]) and "Metalwood".lower() in str(row.get("Name", "")).lower() else
+        "Zootopia;Disney" if pd.isna(row["PIM - Partner"]) and "Zootopia".lower() in str(row.get("Name", "")).lower() else
+        "Pixar;Disney" if pd.isna(row["PIM - Partner"]) and "Pixar".lower() in str(row.get("Name", "")).lower() else
+        "Marvel;Disney;Spiderman" if pd.isna(row["PIM - Partner"]) and "Spiderman".lower() in str(row.get("Name", "")).lower() else
+        "Arrow and Beast" if pd.isna(row["PIM - Partner"]) and "Arrow & Beast".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Partner")
     ), axis=1)
     df["Enriched Product Type"] = df.apply(lambda row: (
@@ -981,6 +1009,7 @@ def enrich_data(df):
         "Bags;Bags - Duffle Bags" if pd.isna(row["PIM adidas - Product Types"]) and "Duffle Bag".lower() in str(row.get("Name", "")).lower() else
         "Bags;Bags - Tote" if pd.isna(row["PIM adidas - Product Types"]) and "Tote Bag".lower() in str(row.get("Name", "")).lower() else
         "Platform;Athletic & Sneakers" if pd.isna(row["PIM adidas - Product Types"]) and "Gazelle Stack".lower() in str(row.get("Name", "")).lower() else
+        "Jackets;Jackets - Puffer;Jackets - Winter Jackets" if pd.isna(row["PIM adidas - Product Types"]) and "Puffer".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM adidas - Product Types")
     ), axis=1)
     df["Enriched Surface"] = df.apply(lambda row: (
@@ -1357,6 +1386,7 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
 
 
