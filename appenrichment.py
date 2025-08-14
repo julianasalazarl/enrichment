@@ -1067,7 +1067,8 @@ def enrich_data(df):
         "Jude Bellingham" if pd.isna(row["PIM - Athletes"]) and "Jude Bellingham".lower() in str(row.get("Name", "")).lower() else 
         "Lamine Yamal" if pd.isna(row["PIM - Athletes"]) and "Lamine".lower() in str(row.get("Name", "")).lower() else 
         "George Russell" if pd.isna(row["PIM - Athletes"]) and "George Russell".lower() in str(row.get("Name", "")).lower() else 
-        "Kimi Antonelli" if pd.isna(row["PIM - Athletes"]) and "Kimi Antonelli".lower() in str(row.get("Name", "")).lower() else 
+        "Kimi Antonelli" if pd.isna(row["PIM - Athletes"]) and "Kimi Antonelli".lower() in str(row.get("Name", "")).lower() else
+        "Rod Laver" if pd.isna(row["PIM - Athletes"]) and "Rod Laver".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Athletes")
     ), axis=1)
     df["Enriched Teams"] = df.apply(lambda row: (
@@ -1305,7 +1306,7 @@ def enrich_data(df):
         'Agility;Accuracy;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court".lower() not in str(row.get("PIM - Surface", "")).lower() and "Predator".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
         'Agility;Outside' if pd.isna(row.get("PIM - Best For")) and "Soccer".lower() in str(row.get("PIM - Sport", "")).lower() and ("Cleats".lower() in str(row.get("PIM adidas - Product Types", "")).lower() or "Cleats - Turf".lower() in str(row.get("PIM adidas - Product Types", "")).lower()) and "Indoor-Court".lower() in str(row.get("PIM - Surface", "")).lower() and "Nemeziz".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else 
         'Speed;Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
-        'Speed;Agility;Comfort;Stability' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
+        'Speed;Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
         'Speed; Agility;Comfort' if pd.isna(row.get("PIM - Best For")) and ("Baseball".lower() in str(row.get("PIM - Sport", "")).lower() or "Softball".lower() in str(row.get("PIM - Sport", "")).lower()) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else 
         'Agility' if pd.isna(row.get("PIM - Best For")) and ("adizero Cybersonic".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() or "adizero Ubersonic".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower()) else 
         'Comfort' if pd.isna(row.get("PIM - Best For")) and "Comfy".lower() in str(row.get("Name", "")).lower() else 
@@ -1358,6 +1359,8 @@ def enrich_data(df):
         "Strength Training" if pd.isna(row.get("PIM - Best For")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Power", "Optime", "Techfit"]) else 
         "Commute;Cycle" if pd.isna(row.get("PIM - Best For")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Velosamba", "Velostan Smith"]) else 
         "Cycle" if pd.isna(row.get("PIM - Best For")) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["The Road", "The Gravel", "The Indoor", "Velocade"]) else
+        "Padel Tennis;Pickleball" if pd.isna(row.get("PIM - Best For")) and "Padel".lower() in str(row.get("Name", "")).lower() else
+        "Agility" if pd.isna(row.get("PIM - Best For")) and "adizero Ubersonic".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Best For")
     ), axis=1)
     return df
@@ -1386,6 +1389,7 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
 
 
