@@ -1014,27 +1014,26 @@ def enrich_data(df):
     ), axis=1)
     df["Enriched Surface"] = df.apply(lambda row: (
         "Multi Ground" if pd.isna(row["PIM - Surface"]) and "Multi ground".lower() in str(row.get("Name", "")).lower() else 
-        "Trail" if pd.isna(row["PIM - Surface"]) and "trail running".lower() in str(row["PIM - Sport"]).lower() else 
-        "Gravel" if pd.isna(row["PIM - Surface"]) and "The Gravel Cycling".lower() in str(row.get("Name", "")).lower() else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "trail running".lower() in str(row["PIM - Sport"]).lower() else 
+        "Gravel" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "The Gravel Cycling".lower() in str(row.get("Name", "")).lower() else 
         "Indoor" if pd.isna(row["PIM - Surface"]) and "THE INDOOR CYCLING SHOE".lower() in str(row.get("Name", "")).lower() else 
-        "Street" if pd.isna(row["PIM - Surface"]) and "Originals".lower() in str(row["PIM - Label"]).lower() and (
-            "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() or 
-            "Athletic & Sneakers - T Toe".lower() in str(row["PIM adidas - Product Types"]).lower()) else 
+        "Street" if pd.isna(row["PIM - Surface"]) and "Lifestyle".lower() in str(row["PIM - Sport"]).lower() and "Originals".lower() in str(row["PIM - Label"]).lower() and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() else
+        "Street" if pd.isna(row["PIM - Surface"]) and "Lifestyle".lower() in str(row["PIM - Sport"]).lower() and "Originals".lower() in str(row["PIM - Label"]).lower() and "Athletic & Sneakers - T Toe".lower() in str(row["PIM adidas - Product Types"]).lower() else
         "Artificial Grass" if pd.isna(row["PIM - Surface"]) and "Artificial Grass".lower() in str(row.get("Name", "")).lower() else 
-        "Clay Court" if pd.isna(row["PIM - Surface"]) and "Clay".lower() in str(row.get("Name", "")).lower() else 
+        "Clay Court" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Clay".lower() in str(row.get("Name", "")).lower() else 
         "Firm Ground" if pd.isna(row["PIM - Surface"]) and ("Firm Ground".lower() in str(row.get("Name", "")).lower() or "FG".lower() in str(row.get("Name", "")).lower()) else 
         "Soft Ground" if pd.isna(row["PIM - Surface"]) and "Soft Ground".lower() in str(row.get("Name", "")).lower() else 
-        "Gravel" if pd.isna(row["PIM - Surface"]) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["The Gravel", "Five Ten"]) else 
-        "Trail" if pd.isna(row["PIM - Surface"]) and "Trailcross".lower() in str(row.get("Name", "")).lower() else 
+        "Gravel" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and any(x.lower() in str(row.get("Name", "")).lower() for x in ["The Gravel", "Five Ten"]) else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Trailcross".lower() in str(row.get("Name", "")).lower() else 
         "Turf" if pd.isna(row["PIM - Surface"]) and "Turf".lower() in str(row.get("Name", "")).lower() else 
         "Indoor-Court" if pd.isna(row["PIM - Surface"]) and "Indoor".lower() in str(row.get("Name", "")).lower() and "Soccer".lower() in str(row["PIM - Sport"]).lower() else 
         "Road;Treadmill" if pd.isna(row["PIM - Surface"]) and "Running".lower() in str(row["PIM - Sport"]).lower() and 
             "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and any(x.lower() in str(row.get("Name", "")).lower() for x in [
                 "4DFWD", "adizero", "Duramo", "Pureboost", "RDY", "Puremotion", "Rapida", "Response", "RunFalcon", 
                 "Solar", "speedmotion", "Supernova", "Switch FWD", "Ultrabounce", "Tensaur", "X9000"]) else 
-        "Track" if pd.isna(row["PIM - Surface"]) and "Track & Field".lower() in str(row["PIM - Sport"]).lower() and "adizero".lower() in str(row.get("Name", "")).lower() else 
-        "Trail" if pd.isna(row["PIM - Surface"]) and "Trail Running".lower() in str(row["PIM - Sport"]).lower() and "Agravic".lower() in str(row.get("Name", "")).lower() else 
-        "Road" if pd.isna(row["PIM - Surface"]) and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Velosamba", "The Road", "Velostan Smith"]) else 
+        "Track" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Track & Field".lower() in str(row["PIM - Sport"]).lower() and "adizero".lower() in str(row.get("Name", "")).lower() else 
+        "Trail" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Trail Running".lower() in str(row["PIM - Sport"]).lower() and "Agravic".lower() in str(row.get("Name", "")).lower() else 
+        "Road" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and any(x.lower() in str(row.get("Name", "")).lower() for x in ["Velosamba", "The Road", "Velostan Smith"]) else 
         "Hard Court" if pd.isna(row["PIM - Surface"]) and any(x.lower() in str(row["PIM - Product Family (productlinestyle)"]).lower() for x in [
             "adizero Cybersonic", "adizero ubersonic"]) else 
         "Clay Court" if pd.isna(row["PIM - Surface"]) and "Tennis".lower() in str(row["PIM - Sport"]).lower() and "Clay".lower() in str(row.get("Name", "")).lower() else 
@@ -1042,7 +1041,10 @@ def enrich_data(df):
             "Barricade", "CourtJam", "Avacourt", "GameCourt"]) else 
         "Street" if pd.isna(row["PIM - Surface"]) and "Fear of God Athletics".lower() in str(row["PIM - Label"]).lower() and 
             "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() else 
-        "Indoor-Court;Hard Court" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Cross Em".lower() in str(row.get("Name", "")).lower() else  
+        "Indoor-Court;Hard Court" if pd.isna(row["PIM - Surface"]) and "Athletic & Sneakers".lower() in str(row["PIM adidas - Product Types"]).lower() and "Cross Em".lower() in str(row.get("Name", "")).lower() else
+        "Grass;Turf" if pd.isna(row["PIM - Surface"]) and "S2G".lower() in str(row.get("Name", "")).lower() else
+        "Indoor" if pd.isna(row["PIM - Surface"]) and "Indoor".lower() in str(row.get("Name", "")).lower() else
+        "Hard Court" if pd.isna(row["PIM - Surface"]) and "adizero Ubersonic".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Surface")
     ), axis=1)
     df["Enriched Athletes"] = df.apply(lambda row: (
@@ -1278,8 +1280,17 @@ def enrich_data(df):
         "Cushioned" if pd.isna(row.get("PIM - Features")) and "Golf".lower() in str(row.get("PIM - Sport", "")).lower() and "Gazelle".lower() in str(row.get("PIM - Product Line (sportsub)", "")).lower() else
         "Lightweight" if pd.isna(row.get("PIM - Features")) and "Football".lower() in str(row.get("PIM - Sport", "")).lower() and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
         "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Electric".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
-        "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
         "Lightweight" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Instinct".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Stability" if pd.isna(row.get("PIM - Features")) and any(sport.lower() in str(row.get("PIM - Sport", "")).lower() for sport in ["Softball", "Baseball"]) and "adizero Impact".lower() in str(row.get("PIM - Product Family (productlinestyle)", "")).lower() else
+        "Stretch;Lightweight" if pd.isna(row.get("PIM - Features")) and "Twistknit".lower() in str(row.get("Name", "")).lower() else
+        "Waterproof;Spikeless;Lightweight" if pd.isna(row.get("PIM - Features")) and "S2G 24 Spikeless".lower() in str(row.get("Name", "")).lower() else
+        "Spiked;Lightweight" if pd.isna(row.get("PIM - Features")) and "Techresponse 3.0".lower() in str(row.get("Name", "")).lower() else
+        "Moisture Wicking" if pd.isna(row.get("PIM - Features")) and "Sweatband".lower() in str(row.get("Name", "")).lower() else
+        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
+        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
+        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
+        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
+        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
         row.get("PIM - Features")
         
     ), axis=1)
@@ -1398,6 +1409,7 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
 
 
