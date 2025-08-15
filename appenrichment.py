@@ -1286,11 +1286,12 @@ def enrich_data(df):
         "Waterproof;Spikeless;Lightweight" if pd.isna(row.get("PIM - Features")) and "S2G 24 Spikeless".lower() in str(row.get("Name", "")).lower() else
         "Spiked;Lightweight" if pd.isna(row.get("PIM - Features")) and "Techresponse 3.0".lower() in str(row.get("Name", "")).lower() else
         "Moisture Wicking" if pd.isna(row.get("PIM - Features")) and "Sweatband".lower() in str(row.get("Name", "")).lower() else
-        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
-        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
-        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
-        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
-        "Lightweight;Cushioned" if pd.isna(row.get("PIM - Features")) and "SL 72".lower() in str(row.get("Name", "")).lower() else
+        "Strapback" if pd.isna(row.get("PIM - Features")) and "Strapback".lower() in str(row.get("Name", "")).lower() else
+        "LED Lights" if pd.isna(row.get("PIM - Features")) and "Led Lights".lower() in str(row.get("Name", "")).lower() else
+        "Long Tongue" if pd.isna(row.get("PIM - Features")) and "Long Tongue".lower() in str(row.get("Name", "")).lower() else
+        "Lightweight" if pd.isna(row.get("PIM - Features")) and "Lightweight".lower() in str(row.get("Name", "")).lower() else
+        "Grip" if pd.isna(row.get("PIM - Features")) and "Gloves".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
+        "Adjustable" if pd.isna(row.get("PIM - Features")) and "Cap".lower() in str(row.get("PIM adidas - Product Types", "")).lower() else
         row.get("PIM - Features")
         
     ), axis=1)
@@ -1409,6 +1410,7 @@ if uploaded_file:
     except Exception as e:
         st.error(f"There was an error processing the file: {e}")
     
+
 
 
 
